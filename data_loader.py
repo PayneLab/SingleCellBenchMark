@@ -57,6 +57,9 @@ def parse_spectromine(file_name, cutoff):
         spectro_files["50ng_4"] = "RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep4.raw"
         spectro_files["50ng_5"] = "RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep5.raw"
 
+        spectro_files["2ng"] = "Ex_Auto_DrM3_30umT4_2ngQC_60m_half.raw"
+        spectro_files[".2ng"] = "Ex_Auto_DrM3_30umT4_02ngQC_60m_half.raw"
+
         #then use the file name to select
         file_path = spectro_files.get(file_name)
         df = combined_df[combined_df["R.FileName"]==file_path]
@@ -86,7 +89,7 @@ def parse_msfragger(file_name, cutoff):
         msfragger_files["50ng_5"] = "data/msfragger/RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep5psm.tsv.gz"
         #2 ng
         msfragger_files["2ng"] = "data/msfragger/Ex_Auto_DrM3_30umT4_2ngQC_60m_halfpsm.tsv.gz"
-        msfragger_files[".2"] = "data/msfragger/Ex_Auto_DrM3_30umT4_02ngQC_60m_halfpsm.tsv.gz"
+        msfragger_files[".2ng"] = "data/msfragger/Ex_Auto_DrM3_30umT4_02ngQC_60m_halfpsm.tsv.gz"
 
 
         file_path = msfragger_files.get(file_name)
@@ -94,6 +97,34 @@ def parse_msfragger(file_name, cutoff):
         df = pd.read_csv(file_path, sep='\t')#, sep='\t', header=0, index_col=0)
 
         return df
+
+
+# def parse_msfragger(file_name, cutoff):
+#     data = pd.read_csv('RC1051_DDA_SingleCell_HeLa_1-1-2021_Rep1_Peptides.psmtsv', sep='\t’)
+#
+#     data.insert(len(data.columns), 'Decoy_Id', 1)
+#
+#     decoy_count = 0;
+#     for index, row in data['Cumulative Decoy'].iteritems():
+#         decoy_num = int(data['Cumulative Decoy'][index])
+#         if(decoy_num > decoy_count):
+#             decoy_count +=1
+#             data.iloc[index,len(data.columns)-1] = 'NaN'
+#
+#
+#     decoys_dropped_df = data[data.Decoy_Id != 'NaN’]
+#
+#     no_duplicates_df = decoys_dropped_df.drop_duplicates(subset=['Scan Number’])
+#     only_unique_df = no_duplicates_df.drop_duplicates(subset=['Base Sequence’])
+#     cut_off_df = only_unique_df[only_unique_df.QValue >= 0.01]
+#
+#     return cut_off_df
+
+
+
+
+
+
 
 
 #These functions will probably be deleted
