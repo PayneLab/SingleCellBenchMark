@@ -43,7 +43,7 @@ def parse_msgfplus(file_name, cutoff):
 
     return df
 def parse_spectromine(file_name, cutoff):
-        combined_df = pd.read_csv("data/spectromine/20210129_140856_SingleCell_PSM Report_20210201_171706.csv")
+        combined_df = pd.read_csv("data/spectromine/20210129_140856_SingleCell_PSM Report_20210201_171706.csv.gz")
 
         #we're going to have to spearate out the files based on file name.
         spectro_files = {}
