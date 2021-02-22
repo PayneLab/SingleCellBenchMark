@@ -1,5 +1,6 @@
 
 import pandas as pd
+import numpy as np
 
 def make_decoy_col_msgf(row):
     if row["Protein"].startswith("XXX_"):
@@ -18,6 +19,36 @@ def make_decoy_col_maxquant(row):
         return True
     else:
         return False
+
+#how we're going to format the peptide modifictations:
+# +15.995
+# +57.021
+#works for msfragger
+def format_oxidation(row, column, to_replace):
+    peptide = row[column]
+#     print(to_replace)
+    replace_with = "+15.995"
+    if pd.isna(peptide):
+        new_pep = peptide
+    else:
+        if to_replace in peptide:
+            new_pep = peptide.replace(to_replace, replace_with)
+        else:
+            new_pep = peptide
+    return new_pep
+
+def format_carbamidomethyl(row, column, to_replace):
+    peptide = row[column]
+#     print(to_replace)
+    replace_with = ""
+    if pd.isna(peptide):
+        new_pep = peptide
+    else:
+        if to_replace in peptide:
+            new_pep = peptide.replace(to_replace, replace_with)
+        else:
+            new_pep = peptide
+    return new_pep
 
 #load data
 def clean_msgfplus(file_name):
@@ -42,8 +73,12 @@ def clean_msgfplus(file_name):
 
     df = pd.read_csv(file_path, sep='\t')#, sep='\t', header=0, index_col=0)
 
+    #make a new col that includes modifide peptides
+    #it's already formatted correly for oxidation
+    df["new_pep"] = df.apply(lambda row: format_carbamidomethyl(row, "Peptide", "+57.021"), axis=1)
+
     df['decoy'] = df.apply (lambda row: make_decoy_col_msgf(row), axis=1)
-    df = df.rename({'ScanNum': 'scan', 'Peptide': 'peptide', 'PepQValue': 'probability'}, axis=1)
+    df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'PepQValue': 'probability'}, axis=1)
     df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
@@ -82,11 +117,16 @@ def clean_msfragger(file_name):
     msfragger_files["2ng"] = "data/msfragger/Ex_Auto_DrM3_30umT4_2ngQC_60m_halfpsm.tsv.gz"
     msfragger_files[".2ng"] = "data/msfragger/Ex_Auto_DrM3_30umT4_02ngQC_60m_halfpsm.tsv.gz"
 
-
     file_path = msfragger_files.get(file_name)
-    df = pd.read_csv(file_path, sep='\t')#, sep='\t', header=0, index_col=0)
+    df = pd.read_csv(file_path, sep='\t')
 
-    df = df.rename({"Peptide":"peptide", "Spectrum":"scan", 'PeptideProphet Probability': 'probability'}, axis=1)
+    #make a new col that includes modifide peptides
+    df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified Peptide", "[147]"), axis=1)
+    df['temp2'] = np.where(pd.isna(df['temp_peptide']), df['Peptide'], df['temp_peptide'])
+
+
+
+    df = df.rename({"temp2":"peptide", "Spectrum":"scan", 'PeptideProphet Probability': 'probability'}, axis=1)
     df["decoy"] = df.apply(lambda row: make_decoy_col_msfragger(row), axis=1)
     df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
@@ -101,9 +141,13 @@ def clean_metamorph(file_name):
     input_file = mm_files.get(file_name)
     data = pd.read_csv(input_file, sep = '\t')
 
+    #make a new col that includes modifide peptides
+    data['temp_peptide'] = data.apply(lambda row: format_oxidation(row, "Full Sequence", "[Common Variable:Oxidation on M]"), axis=1)
+    data["temp2"] = data.apply(lambda row: format_carbamidomethyl(row, "temp_peptide", "[Common Fixed:Carbamidomethyl on C]"), axis=1)
+
     data = data.replace({"Decoy": {'Y': True, 'N': False}})
     #uniform naming
-    data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "Base Sequence": "peptide", 'PEP_QValue': 'probability'}, axis=1)
+    data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide", 'PEP_QValue': 'probability'}, axis=1)
     data_new = data_new.filter((['decoy', 'scan', 'peptide','probability' ]))
 
     return data_new
@@ -118,8 +162,11 @@ def clean_maxquant(file_name):
     file_path = maxq_files.get(file_name)
     df = combined_df[combined_df["Raw file"]==file_path]
 
+    #make a new col that includes modifide
+    df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1)
+
     df["decoy"] = df.apply(lambda row: make_decoy_col_maxquant(row), axis=1)
-    df = df.rename({"Scan number": "scan", "Sequence": "peptide", 'PEP':'probability'}, axis=1)
+    df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'PEP':'probability'}, axis=1)
     df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
