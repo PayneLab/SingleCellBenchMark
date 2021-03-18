@@ -83,7 +83,7 @@ def clean_msgfplus(file_name, prob_method="PEP"):
     else:
         df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'QValue': 'probability'}, axis=1)
 
-    df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
+    # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
 
@@ -110,7 +110,7 @@ def clean_spectromine(file_name):
         df = combined_df[combined_df["R.FileName"]==file_path]
 
         df = df.rename({"PEP.IsDecoy": "decoy", "PSM.MS2ScanNumber": "scan", "PEP.StrippedSequence": "peptide", "PEP.QValue": "probability"}, axis=1)
-        df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
+        # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
         return df
 
@@ -132,7 +132,7 @@ def clean_msfragger(file_name):
     df = df.rename({"temp2":"peptide", "Spectrum":"scan", 'PeptideProphet Probability': 'probability'}, axis=1)
 
     df["decoy"] = df.apply(lambda row: make_decoy_col_msfragger(row), axis=1)
-    df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
+    # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
 
@@ -156,7 +156,7 @@ def clean_metamorph(file_name, prob_method="PEP"):
     else:
         data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide", 'QValue': 'probability'}, axis=1)
 
-    data_new = data_new.filter((['decoy', 'scan', 'peptide','probability' ]))
+    # data_new = data_new.filter((['decoy', 'scan', 'peptide','probability' ]))
 
     return data_new
 
@@ -181,7 +181,7 @@ def clean_maxquant(file_name, prob_method="PEP"):
     else:
         df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'Score':'probability'}, axis=1)
 
-    df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
+    # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
 
