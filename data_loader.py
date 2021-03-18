@@ -51,7 +51,7 @@ def format_carbamidomethyl(row, column, to_replace):
     return new_pep
 
 #load data
-def clean_msgfplus(file_name):
+def clean_msgfplus(file_name, prob_method="PEP"):
     msgfplus_files = {}
     #Single cell
     msgfplus_files["singleCell_1"] = "data/msgfplus/RC1051_DDA_SingleCell_HeLa_1-1-2021_Rep1.gz"
@@ -78,7 +78,11 @@ def clean_msgfplus(file_name):
     df["new_pep"] = df.apply(lambda row: format_carbamidomethyl(row, "Peptide", "+57.021"), axis=1)
 
     df['decoy'] = df.apply (lambda row: make_decoy_col_msgf(row), axis=1)
-    df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'PepQValue': 'probability'}, axis=1)
+    if prob_method=="PEP":
+        df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'PepQValue': 'probability'}, axis=1)
+    else:
+        df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'QValue': 'probability'}, axis=1)
+
     df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
@@ -125,14 +129,14 @@ def clean_msfragger(file_name):
     df['temp2'] = np.where(pd.isna(df['temp_peptide']), df['Peptide'], df['temp_peptide'])
 
 
-
     df = df.rename({"temp2":"peptide", "Spectrum":"scan", 'PeptideProphet Probability': 'probability'}, axis=1)
+
     df["decoy"] = df.apply(lambda row: make_decoy_col_msfragger(row), axis=1)
     df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
 
-def clean_metamorph(file_name):
+def clean_metamorph(file_name, prob_method="PEP"):
     mm_files = {}
 
     mm_files[".2ng"] = 'data/MetaMorpheus/Ex_Auto_DrM3_30umT4_02ngQC_60m_half_PSMs.psmtsv.gz'
@@ -147,12 +151,16 @@ def clean_metamorph(file_name):
 
     data = data.replace({"Decoy": {'Y': True, 'N': False}})
     #uniform naming
-    data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide", 'PEP_QValue': 'probability'}, axis=1)
+    if prob_method=="PEP":
+        data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide", 'PEP_QValue': 'probability'}, axis=1)
+    else:
+        data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide", 'QValue': 'probability'}, axis=1)
+
     data_new = data_new.filter((['decoy', 'scan', 'peptide','probability' ]))
 
     return data_new
 
-def clean_maxquant(file_name):
+def clean_maxquant(file_name, prob_method="PEP"):
     combined_df = pd.read_csv("data/maxquant/msmsScans.txt.gz", sep="\t")
 
     #get the 2 ng file
@@ -167,7 +175,12 @@ def clean_maxquant(file_name):
     df["temp_peptide"] = df["temp_peptide"].str[1:-1]
 
     df["decoy"] = df.apply(lambda row: make_decoy_col_maxquant(row), axis=1)
-    df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'PEP':'probability'}, axis=1)
+
+    if prob_method=="PEP":
+        df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'PEP':'probability'}, axis=1)
+    else:
+        df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'Score':'probability'}, axis=1)
+
     df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
