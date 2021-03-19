@@ -1,6 +1,7 @@
 
 import pandas as pd
 import numpy as np
+import os
 
 def make_decoy_col_msgf(row):
     if row["Protein"].startswith("XXX_"):
@@ -68,10 +69,10 @@ def clean_msgfplus(file_name, prob_method="PEP"):
     msgfplus_files["2ng"] = "data/msgfplus/Ex_Auto_DrM3_30umT4_2ngQC_60m_half.tsv.gz"
     msgfplus_files[".2ng"] = "data/msgfplus/Ex_Auto_DrM3_30umT4_02ngQC_60m_half.tsv.gz"
 
+    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
+    complete_path_to_data = os.path.join(path_to_data_loader, msgfplus_files.get(file_name)) # We then append the relative path to the data files
 
-    file_path = msgfplus_files.get(file_name)
-
-    df = pd.read_csv(file_path, sep='\t')#, sep='\t', header=0, index_col=0)
+    df = pd.read_csv(complete_path_to_data, sep = '\t')
 
     #make a new col that includes modifide peptides
     #it's already formatted correly for oxidation
@@ -121,8 +122,10 @@ def clean_msfragger(file_name):
     msfragger_files["2ng"] = "data/msfragger/Ex_Auto_DrM3_30umT4_2ngQC_60m_halfpsm.tsv.gz"
     msfragger_files[".2ng"] = "data/msfragger/Ex_Auto_DrM3_30umT4_02ngQC_60m_halfpsm.tsv.gz"
 
-    file_path = msfragger_files.get(file_name)
-    df = pd.read_csv(file_path, sep='\t')
+    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
+    complete_path_to_data = os.path.join(path_to_data_loader, msfragger_files.get(file_name)) # We then append the relative path to the data files
+
+    df = pd.read_csv(complete_path_to_data, sep = '\t')
 
     #make a new col that includes modifide peptides
     df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified Peptide", "[147]"), axis=1)
@@ -142,8 +145,10 @@ def clean_metamorph(file_name, prob_method="PEP"):
     mm_files[".2ng"] = 'data/MetaMorpheus/Ex_Auto_DrM3_30umT4_02ngQC_60m_half_PSMs.psmtsv.gz'
     mm_files["2ng"] = 'data/MetaMorpheus/Ex_Auto_DrM3_30umT4_2ngQC_60m_half_PSMs.psmtsv.gz'
 
-    input_file = mm_files.get(file_name)
-    data = pd.read_csv(input_file, sep = '\t')
+    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
+    complete_path_to_data = os.path.join(path_to_data_loader, mm_files.get(file_name)) # We then append the relative path to the data files
+
+    data = pd.read_csv(complete_path_to_data, sep = '\t')
 
     #make a new col that includes modifide peptides
     data['temp_peptide'] = data.apply(lambda row: format_oxidation(row, "Full Sequence", "[Common Variable:Oxidation on M]"), axis=1)
@@ -161,7 +166,10 @@ def clean_metamorph(file_name, prob_method="PEP"):
     return data_new
 
 def clean_maxquant(file_name, prob_method="PEP"):
-    combined_df = pd.read_csv("data/maxquant/msmsScans.txt.gz", sep="\t")
+    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
+    complete_path_to_data = os.path.join(path_to_data_loader, "data/maxquant/msmsScans.txt.gz") # We then append the relative path to the data files
+
+    combined_df = pd.read_csv(complete_path_to_data, sep = '\t')
 
     #get the 2 ng file
     maxq_files = {}
