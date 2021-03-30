@@ -52,7 +52,7 @@ def format_carbamidomethyl(row, column, to_replace):
     return new_pep
 
 #load data
-def clean_msgfplus(file_name, prob_method="PEP"):
+def clean_msgfplus(file_name):
     msgfplus_files = {}
     #Single cell
     msgfplus_files["singleCell_1"] = "data/msgfplus/RC1051_DDA_SingleCell_HeLa_1-1-2021_Rep1.gz"
@@ -79,10 +79,10 @@ def clean_msgfplus(file_name, prob_method="PEP"):
     df["new_pep"] = df.apply(lambda row: format_carbamidomethyl(row, "Peptide", "+57.021"), axis=1)
 
     df['decoy'] = df.apply (lambda row: make_decoy_col_msgf(row), axis=1)
-    if prob_method=="PEP":
-        df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'PepQValue': 'probability'}, axis=1)
-    else:
-        df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'QValue': 'probability'}, axis=1)
+
+    df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'PepQValue': 'PEP', 'QValue': 'QValue'}, axis=1)
+    # else:
+    #     df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'QValue': 'probability'}, axis=1)
 
     # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
@@ -139,7 +139,7 @@ def clean_msfragger(file_name):
 
     return df
 
-def clean_metamorph(file_name, prob_method="PEP"):
+def clean_metamorph(file_name):
     mm_files = {}
 
     mm_files[".2ng"] = 'data/MetaMorpheus/Ex_Auto_DrM3_30umT4_02ngQC_60m_half_PSMs.psmtsv.gz'
@@ -156,16 +156,13 @@ def clean_metamorph(file_name, prob_method="PEP"):
 
     data = data.replace({"Decoy": {'Y': True, 'N': False}})
     #uniform naming
-    if prob_method=="PEP":
-        data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide", 'PEP_QValue': 'probability'}, axis=1)
-    else:
-        data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide", 'QValue': 'probability'}, axis=1)
+    data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide", 'PEP_QValue': 'PEP', "QValue": 'QValue'}, axis=1)
 
     # data_new = data_new.filter((['decoy', 'scan', 'peptide','probability' ]))
 
     return data_new
 
-def clean_maxquant(file_name, prob_method="PEP"):
+def clean_maxquant(file_name):
     path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
     complete_path_to_data = os.path.join(path_to_data_loader, "data/maxquant/msmsScans.txt.gz") # We then append the relative path to the data files
 
@@ -184,10 +181,9 @@ def clean_maxquant(file_name, prob_method="PEP"):
 
     df["decoy"] = df.apply(lambda row: make_decoy_col_maxquant(row), axis=1)
 
-    if prob_method=="PEP":
-        df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'PEP':'probability'}, axis=1)
-    else:
-        df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'Score':'probability'}, axis=1)
+    df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'PEP':'PEP'}, axis=1)
+    # else:
+    #     df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'Score':'probability'}, axis=1)
 
     # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
