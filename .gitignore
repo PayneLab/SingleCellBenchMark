@@ -1,3 +1,4 @@
 .DS_Store
 __pychache__/*
 .ipynb_checkpoints/*
+data/spectromin/*

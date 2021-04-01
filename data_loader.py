@@ -132,7 +132,7 @@ def clean_msfragger(file_name):
     df['temp2'] = np.where(pd.isna(df['temp_peptide']), df['Peptide'], df['temp_peptide'])
 
 
-    df = df.rename({"temp2":"peptide", "Spectrum":"scan", 'PeptideProphet Probability': 'probability'}, axis=1)
+    df = df.rename({"temp2":"peptide", "Spectrum":"scan"}, axis=1)
 
     df["decoy"] = df.apply(lambda row: make_decoy_col_msfragger(row), axis=1)
     # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
