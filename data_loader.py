@@ -54,20 +54,21 @@ def format_carbamidomethyl(row, column, to_replace):
 #load data
 def clean_msgfplus(file_name):
     msgfplus_files = {}
-    #Single cell
-    msgfplus_files["singleCell_1"] = "data/msgfplus/RC1051_DDA_SingleCell_HeLa_1-1-2021_Rep1.gz"
-    msgfplus_files["singleCell_2"] = "data/msgfplus/RC1051_DDA_SingleCell_HeLa_1-1-2021_Rep2.gz"
-    msgfplus_files["singleCell_3"] = "data/msgfplus/RC1051_DDA_SingleCell_HeLa_1-1-2021_Rep3.gz"
-    msgfplus_files["singleCell_4"] = "data/msgfplus/RC1051_DDA_SingleCell_HeLa_1-14-2021_Rep1.gz"
-    #50 ng
-    msgfplus_files["50ng_1"] = "data/msgfplus/RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep1.gz"
-    msgfplus_files["50ng_2"] = "data/msgfplus/RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep2.gz"
-    msgfplus_files["50ng_3"] = "data/msgfplus/RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep3.gz"
-    msgfplus_files["50ng_4"] = "data/msgfplus/RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep4.gz"
-    msgfplus_files["50ng_5"] = "data/msgfplus/RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep5.gz"
-    #2 ng
-    msgfplus_files["2ng"] = "data/msgfplus/Ex_Auto_DrM3_30umT4_2ngQC_60m_half.tsv.gz"
-    msgfplus_files[".2ng"] = "data/msgfplus/Ex_Auto_DrM3_30umT4_02ngQC_60m_half.tsv.gz"
+    #2ng
+    msgfplus_files["2ng_rep1"] = "data/msgfplus/Ex_Auto_J3_30umTB_2ngQC_60m_1.tsv.gz"
+    msgfplus_files["2ng_rep2"] = "data/msgfplus/Ex_Auto_J3_30umTB_2ngQC_60m_2.tsv.gz"
+    msgfplus_files["2ng_rep3"] = "data/msgfplus/Ex_Auto_K13_30umTA_2ngQC_60m_1.tsv.gz"
+    msgfplus_files["2ng_rep4"] = "data/msgfplus/Ex_Auto_K13_30umTA_2ngQC_60m_2.tsv.gz"
+    msgfplus_files["2ng_rep5"] = "data/msgfplus/Ex_Auto_W17_30umTB_2ngQC_60m_1.tsv.gz"
+    msgfplus_files["2ng_rep6"] = "data/msgfplus/Ex_Auto_W17_30umTB_2ngQC_60m_2.tsv.gz"
+
+    #0.2 ng
+    msgfplus_files["0.2ng_rep1"] = "data/msgfplus/Ex_Auto_J3_30umTB_02ngQC_60m_1.tsv.gz"
+    msgfplus_files["0.2ng_rep2"] = "data/msgfplus/Ex_Auto_J3_30umTB_02ngQC_60m_2.tsv.gz"
+    msgfplus_files["0.2ng_rep3"] = "data/msgfplus/Ex_Auto_K13_30umTA_02ngQC_60m_1.tsv.gz"
+    msgfplus_files["0.2ng_rep4"] = "data/msgfplus/Ex_Auto_K13_30umTA_02ngQC_60m_2.tsv.gz"
+    msgfplus_files["0.2ng_rep5"] = "data/msgfplus/Ex_Auto_W17_30umTA_02ngQC_60m_3.tsv.gz"
+    msgfplus_files["0.2ng_rep6"] = "data/msgfplus/Ex_Auto_W17_30umTA_02ngQC_60m_4.tsv.gz"
 
     path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
     complete_path_to_data = os.path.join(path_to_data_loader, msgfplus_files.get(file_name)) # We then append the relative path to the data files
@@ -81,12 +82,129 @@ def clean_msgfplus(file_name):
     df['decoy'] = df.apply (lambda row: make_decoy_col_msgf(row), axis=1)
 
     df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide'}, axis=1)
+
+
+    return df
+
+def clean_msfragger(file_name):
+    #it came as a combined file, so we need to parse out individual mm_files
+    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
+    complete_path_to_data = os.path.join(path_to_data_loader, 'data/msfragger/psm.tsv') # We then append the relative path to the data files
+
+    combined_df = pd.read_csv(complete_path_to_data, sep = '\t') #combined file
+
+    msfragger_files = {}
+    msfragger_files["2ng_rep1"] = "Ex_Auto_J3_30umTB_2ngQC_60m_1"
+    msfragger_files["2ng_rep2"] = "Ex_Auto_J3_30umTB_2ngQC_60m_2"
+    msfragger_files["2ng_rep3"] = "Ex_Auto_K13_30umTA_2ngQC_60m_1"
+    msfragger_files["2ng_rep4"] = "Ex_Auto_K13_30umTA_2ngQC_60m_2"
+    msfragger_files["2ng_rep5"] = "Ex_Auto_W17_30umTB_2ngQC_60m_1"
+    msfragger_files["2ng_rep6"] = "Ex_Auto_W17_30umTB_2ngQC_60m_2"
+
+    #0.2 ng
+    msfragger_files["0.2ng_rep1"] = "Ex_Auto_J3_30umTB_02ngQC_60m_1"
+    msfragger_files["0.2ng_rep2"] = "Ex_Auto_J3_30umTB_02ngQC_60m_2"
+    msfragger_files["0.2ng_rep3"] = "Ex_Auto_K13_30umTA_02ngQC_60m_1"
+    msfragger_files["0.2ng_rep4"] = "Ex_Auto_K13_30umTA_02ngQC_60m_2"
+    msfragger_files["0.2ng_rep5"] = "Ex_Auto_W17_30umTA_02ngQC_60m_3"
+    msfragger_files["0.2ng_rep6"] = "Ex_Auto_W17_30umTA_02ngQC_60m_4"
+
+    file_path = msfragger_files.get(file_name)
+    df = combined_df[combined_df["Spectrum File"].str.contains(file_path)]
+
+    #make a new col that includes modifide peptides
+    # df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified Peptide", "[147]"), axis=1)
+    # df['temp2'] = np.where(pd.isna(df['temp_peptide']), df['Peptide'], df['temp_peptide'])
+
+    df = df.assign(temp_peptide=df.apply(lambda row: format_oxidation(row, "Modified Peptide", "[147]"), axis=1))
+    df = df.assign(temp2=np.where(pd.isna(df['temp_peptide']), df['Peptide'], df['temp_peptide']))
+
+    df = df.rename({"temp2":"peptide", "Spectrum":"scan"}, axis=1)
+
+    df["decoy"] = df.apply(lambda row: make_decoy_col_msfragger(row), axis=1)
+    # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
+
+    return df
+
+def clean_metamorph(file_name):
+    mm_files = {}
+
+    #2ng
+    mm_files["2ng_rep1"] = "data/MetaMorpheus/Ex_Auto_J3_30umTB_2ngQC_60m_1-calib_PSMs.psmtsv.gz"
+    mm_files["2ng_rep2"] = "data/MetaMorpheus/Ex_Auto_J3_30umTB_2ngQC_60m_2-calib_PSMs.psmtsv.gz"
+    mm_files["2ng_rep3"] = "data/MetaMorpheus/Ex_Auto_K13_30umTA_2ngQC_60m_1-calib_PSMs.psmtsv.gz"
+    mm_files["2ng_rep4"] = "data/MetaMorpheus/Ex_Auto_K13_30umTA_2ngQC_60m_2-calib_PSMs.psmtsv.gz"
+    mm_files["2ng_rep5"] = "data/MetaMorpheus/Ex_Auto_W17_30umTB_2ngQC_60m_1-calib_PSMs.psmtsv.gz"
+    mm_files["2ng_rep6"] = "data/MetaMorpheus/Ex_Auto_W17_30umTB_2ngQC_60m_2-calib_PSMs.psmtsv.gz"
+
+    #0.2 ng
+    mm_files["0.2ng_rep1"] = "data/MetaMorpheus/Ex_Auto_J3_30umTB_02ngQC_60m_1-calib_PSMs.psmtsv.gz"
+    mm_files["0.2ng_rep2"] = "data/MetaMorpheus/Ex_Auto_J3_30umTB_02ngQC_60m_2-calib_PSMs.psmtsv.gz"
+    mm_files["0.2ng_rep3"] = "data/MetaMorpheus/Ex_Auto_K13_30umTA_02ngQC_60m_1-calib_PSMs.psmtsv.gz"
+    mm_files["0.2ng_rep4"] = "data/MetaMorpheus/Ex_Auto_K13_30umTA_02ngQC_60m_2-calib_PSMs.psmtsv.gz"
+    mm_files["0.2ng_rep5"] = "data/MetaMorpheus/Ex_Auto_W17_30umTA_02ngQC_60m_3-calib_PSMs.psmtsv.gz"
+    mm_files["0.2ng_rep6"] = "data/MetaMorpheus/Ex_Auto_W17_30umTA_02ngQC_60m_4-calib_PSMs.psmtsv.gz"
+
+
+    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
+    complete_path_to_data = os.path.join(path_to_data_loader, mm_files.get(file_name)) # We then append the relative path to the data files
+
+    data = pd.read_csv(complete_path_to_data, sep = '\t')
+
+    #make a new col that includes modifide peptides
+    data['temp_peptide'] = data.apply(lambda row: format_oxidation(row, "Full Sequence", "[Common Variable:Oxidation on M]"), axis=1)
+    data["temp2"] = data.apply(lambda row: format_carbamidomethyl(row, "temp_peptide", "[Common Fixed:Carbamidomethyl on C]"), axis=1)
+
+    data = data.replace({"Decoy": {'Y': True, 'N': False}})
+    #uniform naming
+    data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide"}, axis=1)
+
+    # data_new = data_new.filter((['decoy', 'scan', 'peptide','probability' ]))
+
+    return data_new
+
+def clean_maxquant(file_name):
+    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
+    complete_path_to_data = os.path.join(path_to_data_loader, "data/maxquant/msmsScans.txt.gz") # We then append the relative path to the data files
+
+    combined_df = pd.read_csv(complete_path_to_data, sep = '\t')
+
+    #get the 2 ng file
+    maxq_files = {}
+    maxq_files["2ng_rep1"] = "Ex_Auto_J3_30umTB_2ngQC_60m_1"
+    maxq_files["2ng_rep2"] = 'Ex_Auto_J3_30umTB_2ngQC_60m_2'
+    maxq_files["2ng_rep3"] = 'Ex_Auto_K13_30umTA_2ngQC_60m_1'
+    maxq_files["2ng_rep4"] = 'Ex_Auto_K13_30umTA_2ngQC_60m_2'
+    maxq_files["2ng_rep5"] = 'Ex_Auto_W17_30umTB_2ngQC_60m_1'
+    maxq_files["2ng_rep6"] = 'Ex_Auto_W17_30umTB_2ngQC_60m_2'
+
+    maxq_files["0.2ng_rep1"] = "Ex_Auto_J3_30umTB_02ngQC_60m_1"
+    maxq_files["0.2ng_rep2"] = 'Ex_Auto_J3_30umTB_02ngQC_60m_2'
+    maxq_files["0.2ng_rep3"] = 'Ex_Auto_K13_30umTA_02ngQC_60m_1'
+    maxq_files["0.2ng_rep4"] = 'Ex_Auto_K13_30umTA_02ngQC_60m_2'
+    maxq_files["0.2ng_rep5"] = 'Ex_Auto_W17_30umTA_02ngQC_60m_3'
+    maxq_files["0.2ng_rep6"] = 'Ex_Auto_W17_30umTA_02ngQC_60m_4'
+
+    maxq_files[".2ng"] = "Ex_Auto_DrM3_30umT4_02ngQC_60m_half"
+
+    file_path = maxq_files.get(file_name)
+    df = combined_df[combined_df["Raw file"]==file_path]
+
+    #make a new col that includes modifide
+    df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1)
+    df["temp_peptide"] = df["temp_peptide"].str[1:-1]
+
+    df["decoy"] = df.apply(lambda row: make_decoy_col_maxquant(row), axis=1)
+
+    df = df.rename({"Scan number": "scan", "temp_peptide": "peptide"}, axis=1)
     # else:
-    #     df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide', 'QValue': 'probability'}, axis=1)
+    #     df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'Score':'probability'}, axis=1)
 
     # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
+
+
 
 def clean_spectromine(file_name):
         combined_df = pd.read_csv("data/spectromine/20210129_140856_SingleCell_PSM Report_20210201_171706.csv.gz")
@@ -114,93 +232,3 @@ def clean_spectromine(file_name):
         # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
         return df
-
-def clean_msfragger(file_name):
-    msfragger_files = {}
-
-    #2 ng
-    msfragger_files["2ng"] = "data/msfragger/Ex_Auto_DrM3_30umT4_2ngQC_60m_halfpsm.tsv.gz"
-    msfragger_files[".2ng"] = "data/msfragger/Ex_Auto_DrM3_30umT4_02ngQC_60m_halfpsm.tsv.gz"
-
-    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
-    complete_path_to_data = os.path.join(path_to_data_loader, msfragger_files.get(file_name)) # We then append the relative path to the data files
-
-    df = pd.read_csv(complete_path_to_data, sep = '\t')
-
-    #make a new col that includes modifide peptides
-    df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified Peptide", "[147]"), axis=1)
-    df['temp2'] = np.where(pd.isna(df['temp_peptide']), df['Peptide'], df['temp_peptide'])
-
-
-    df = df.rename({"temp2":"peptide", "Spectrum":"scan", 'PeptideProphet Probability': 'probability'}, axis=1)
-
-    df["decoy"] = df.apply(lambda row: make_decoy_col_msfragger(row), axis=1)
-    # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
-
-    return df
-
-def clean_metamorph(file_name):
-    mm_files = {}
-
-    mm_files[".2ng"] = 'data/MetaMorpheus/Ex_Auto_DrM3_30umT4_02ngQC_60m_half_PSMs.psmtsv.gz'
-    mm_files["2ng"] = 'data/MetaMorpheus/Ex_Auto_DrM3_30umT4_2ngQC_60m_half_PSMs.psmtsv.gz'
-
-    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
-    complete_path_to_data = os.path.join(path_to_data_loader, mm_files.get(file_name)) # We then append the relative path to the data files
-
-    data = pd.read_csv(complete_path_to_data, sep = '\t')
-
-    #make a new col that includes modifide peptides
-    data['temp_peptide'] = data.apply(lambda row: format_oxidation(row, "Full Sequence", "[Common Variable:Oxidation on M]"), axis=1)
-    data["temp2"] = data.apply(lambda row: format_carbamidomethyl(row, "temp_peptide", "[Common Fixed:Carbamidomethyl on C]"), axis=1)
-
-    data = data.replace({"Decoy": {'Y': True, 'N': False}})
-    #uniform naming
-    data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide"}, axis=1)
-
-    # data_new = data_new.filter((['decoy', 'scan', 'peptide','probability' ]))
-
-    return data_new
-
-def clean_maxquant(file_name):
-    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
-    complete_path_to_data = os.path.join(path_to_data_loader, "data/maxquant/msmsScans.txt.gz") # We then append the relative path to the data files
-
-    combined_df = pd.read_csv(complete_path_to_data, sep = '\t')
-
-    #get the 2 ng file
-    maxq_files = {}
-    maxq_files["2ng"] = "Ex_Auto_DrM3_30umT4_2ngQC_60m_half"
-    maxq_files[".2ng"] = "Ex_Auto_DrM3_30umT4_02ngQC_60m_half"
-    file_path = maxq_files.get(file_name)
-    df = combined_df[combined_df["Raw file"]==file_path]
-
-    #make a new col that includes modifide
-    df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1)
-    df["temp_peptide"] = df["temp_peptide"].str[1:-1]
-
-    df["decoy"] = df.apply(lambda row: make_decoy_col_maxquant(row), axis=1)
-
-    df = df.rename({"Scan number": "scan", "temp_peptide": "peptide"}, axis=1)
-    # else:
-    #     df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'Score':'probability'}, axis=1)
-
-    # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
-
-    return df
-
-
-#set cutoff
-#can choose column
-#Use the cuttoff of 1 pweacent ) (.01)
-#how many unique peptides
-
-# only report scan numbers
-# remove decoy
-
-# number of unique peptides
-
-# unique scan (spectra)
-# unique peptide
-
-#report data
