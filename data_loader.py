@@ -89,7 +89,7 @@ def clean_msgfplus(file_name):
 def clean_msfragger(file_name):
     #it came as a combined file, so we need to parse out individual mm_files
     path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
-    complete_path_to_data = os.path.join(path_to_data_loader, 'data/msfragger/psm.tsv') # We then append the relative path to the data files
+    complete_path_to_data = os.path.join(path_to_data_loader, 'data/msfragger/psm.tsv.gz') # We then append the relative path to the data files
 
     combined_df = pd.read_csv(complete_path_to_data, sep = '\t') #combined file
 
@@ -165,9 +165,12 @@ def clean_metamorph(file_name):
 
 def clean_maxquant(file_name):
     path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
-    complete_path_to_data = os.path.join(path_to_data_loader, "data/maxquant/msmsScans.txt.gz") # We then append the relative path to the data files
 
-    combined_df = pd.read_csv(complete_path_to_data, sep = '\t')
+    complete_path_to_2ngdata = os.path.join(path_to_data_loader, "data/maxquant/msmsScans2ng.txt.gz") # We then append the relative path to the data files
+    combined_df_2ng = pd.read_csv(complete_path_to_2ngdata, sep = '\t')
+
+    complete_path_to_02ngdata = os.path.join(path_to_data_loader, "data/maxquant/msmsScans02ng.txt.gz") # We then append the relative path to the data files
+    combined_df_02ng = pd.read_csv(complete_path_to_02ngdata, sep = '\t')
 
     #get the 2 ng file
     maxq_files = {}
@@ -185,10 +188,15 @@ def clean_maxquant(file_name):
     maxq_files["0.2ng_rep5"] = 'Ex_Auto_W17_30umTA_02ngQC_60m_3'
     maxq_files["0.2ng_rep6"] = 'Ex_Auto_W17_30umTA_02ngQC_60m_4'
 
-    maxq_files[".2ng"] = "Ex_Auto_DrM3_30umT4_02ngQC_60m_half"
+    if "0.2" in file_name:
+        file_path = maxq_files.get(file_name)
+        df = combined_df_02ng[combined_df_02ng["Raw file"]==file_path]
+    else:
+        file_path = maxq_files.get(file_name)
+        df = combined_df_2ng[combined_df_2ng["Raw file"]==file_path]
 
-    file_path = maxq_files.get(file_name)
-    df = combined_df[combined_df["Raw file"]==file_path]
+    # file_path = maxq_files.get(file_name)
+    # df = combined_df[combined_df["Raw file"]==file_path]
 
     #make a new col that includes modifide
     df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1)
