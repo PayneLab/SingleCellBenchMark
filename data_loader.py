@@ -166,10 +166,10 @@ def clean_metamorph(file_name):
 def clean_maxquant(file_name):
     path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
 
-    complete_path_to_2ngdata = os.path.join(path_to_data_loader, "data/maxquant/msmsScans2ng.txt.gz") # We then append the relative path to the data files
+    complete_path_to_2ngdata = os.path.join(path_to_data_loader, "data/maxquant/msms2ng.txt.gz") # We then append the relative path to the data files
     combined_df_2ng = pd.read_csv(complete_path_to_2ngdata, sep = '\t')
 
-    complete_path_to_02ngdata = os.path.join(path_to_data_loader, "data/maxquant/msmsScans02ng.txt.gz") # We then append the relative path to the data files
+    complete_path_to_02ngdata = os.path.join(path_to_data_loader, "data/maxquant/msms02ng.txt.gz") # We then append the relative path to the data files
     combined_df_02ng = pd.read_csv(complete_path_to_02ngdata, sep = '\t')
 
     #get the 2 ng file
@@ -240,7 +240,7 @@ def clean_spectromine(file_name):
         # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
         return df
-    
+
 def get_pin_file(file_name):
     mm_pin_files = {}
 
@@ -259,7 +259,7 @@ def get_pin_file(file_name):
     mm_pin_files["0.2ng_rep4"] = "data/MetaMorpheus/pin_files/Ex_Auto_K13_30umTA_02ngQC_60m_2-calib_PSMsFormattedForPercolator.tab.gz"
     mm_pin_files["0.2ng_rep5"] = "data/MetaMorpheus/pin_files/Ex_Auto_W17_30umTA_02ngQC_60m_3-calib_PSMsFormattedForPercolator.tab.gz"
     mm_pin_files["0.2ng_rep6"] = "data/MetaMorpheus/pin_files/Ex_Auto_W17_30umTA_02ngQC_60m_4-calib_PSMsFormattedForPercolator.tab.gz"
-    
+
     path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
     complete_path_to_data = os.path.join(path_to_data_loader, mm_pin_files.get(file_name)) # We then append the relative path to the data files
 
