@@ -16,7 +16,7 @@ def make_decoy_col_msfragger(row):
         return False
 
 def make_decoy_col_maxquant(row):
-    if row["Proteins"].startswith("REV"):
+    if row["Reverse"].contains("+"):
         return True
     else:
         return False
