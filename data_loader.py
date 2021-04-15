@@ -16,7 +16,7 @@ def make_decoy_col_msfragger(row):
         return False
 
 def make_decoy_col_maxquant(row):
-    if row["Reverse"].contains("+"):
+    if row["Reverse"].startswith("\+"):
         return True
     else:
         return False
@@ -202,6 +202,7 @@ def clean_maxquant(file_name):
     df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1)
     df["temp_peptide"] = df["temp_peptide"].str[1:-1]
 
+    df['Reverse'] = df['Reverse'].astype(str)
     df["decoy"] = df.apply(lambda row: make_decoy_col_maxquant(row), axis=1)
 
     df = df.rename({"Scan number": "scan", "temp_peptide": "peptide"}, axis=1)
