@@ -266,3 +266,41 @@ def get_pin_file(file_name):
     df = pd.read_csv(complete_path_to_data, sep = '\t')
 
     return df
+
+
+def clean_proteome_discover(file_name):
+    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
+
+
+    complete_path_to_2ngdata = os.path.join(path_to_data_loader, "data/proteome_discover/pd_results_PSMs.csv.gz") # We then append the relative path to the data files
+    combined_df_2ng = pd.read_csv(complete_path_to_2ngdata)
+
+    complete_path_to_02ngdata = os.path.join(path_to_data_loader, "data/proteome_discover/pd_results_PSMs.csv.gz") # We then append the relative path to the data files
+    combined_df_02ng = pd.read_csv(complete_path_to_02ngdata)
+
+    #get the 2 ng file
+    pd_files = {}
+    pd_files["2ng_rep1"] = "Ex_Auto_J3_30umTB_2ngQC_60m_1.raw"
+    pd_files["2ng_rep2"] = 'Ex_Auto_J3_30umTB_2ngQC_60m_2.raw'
+    pd_files["2ng_rep3"] = 'Ex_Auto_K13_30umTA_2ngQC_60m_1.raw'
+    pd_files["2ng_rep4"] = 'Ex_Auto_K13_30umTA_2ngQC_60m_2.raw'
+    pd_files["2ng_rep5"] = 'Ex_Auto_W17_30umTB_2ngQC_60m_1.raw'
+    pd_files["2ng_rep6"] = 'Ex_Auto_W17_30umTB_2ngQC_60m_2.raw'
+      
+    #get the 0.2 ng files
+    pd_files["0.2ng_rep1"] = "Ex_Auto_J3_30umTB_02ngQC_60m_1.raw"
+    pd_files["0.2ng_rep2"] = 'Ex_Auto_J3_30umTB_02ngQC_60m_2.raw'
+    pd_files["0.2ng_rep3"] = 'Ex_Auto_K13_30umTA_02ngQC_60m_1.raw'
+    pd_files["0.2ng_rep4"] = 'Ex_Auto_K13_30umTA_02ngQC_60m_2.raw'
+    pd_files["0.2ng_rep5"] = 'Ex_Auto_W17_30umTA_02ngQC_60m_3.raw'
+    pd_files["0.2ng_rep6"] = 'Ex_Auto_W17_30umTA_02ngQC_60m_4.raw'
+
+    if "0.2" in file_name:
+        file_path = pd_files.get(file_name)
+        df = combined_df_02ng[combined_df_02ng["Spectrum File"]==file_path]
+    else:
+        file_path = pd_files.get(file_name)
+        df = combined_df_2ng[combined_df_2ng["Spectrum File"]==file_path]
+
+
+    return df
