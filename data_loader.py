@@ -166,10 +166,10 @@ def clean_metamorph(file_name):
 def clean_maxquant(file_name):
     path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
 
-    complete_path_to_2ngdata = os.path.join(path_to_data_loader, "data/maxquant/msms2ng.txt.gz") # We then append the relative path to the data files
+    complete_path_to_2ngdata = os.path.join(path_to_data_loader, "data/maxquant/msms.txt.gz") # We then append the relative path to the data files
     combined_df_2ng = pd.read_csv(complete_path_to_2ngdata, sep = '\t')
 
-    complete_path_to_02ngdata = os.path.join(path_to_data_loader, "data/maxquant/msms02ng.txt.gz") # We then append the relative path to the data files
+    complete_path_to_02ngdata = os.path.join(path_to_data_loader, "data/maxquant/msms.txt.gz") # We then append the relative path to the data files
     combined_df_02ng = pd.read_csv(complete_path_to_02ngdata, sep = '\t')
 
     #get the 2 ng file
@@ -273,10 +273,10 @@ def clean_proteome_discover(file_name):
     path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
 
 
-    complete_path_to_2ngdata = os.path.join(path_to_data_loader, "data/proteome_discover/pd_results_PSMs.csv.gz") # We then append the relative path to the data files
+    complete_path_to_2ngdata = os.path.join(path_to_data_loader, "data/proteome_discover/Hannah_Daisha_Reanalysis_with_INFERYS_05172021-PSMs.csv.gz") # We then append the relative path to the data files
     combined_df_2ng = pd.read_csv(complete_path_to_2ngdata)
 
-    complete_path_to_02ngdata = os.path.join(path_to_data_loader, "data/proteome_discover/pd_results_PSMs.csv.gz") # We then append the relative path to the data files
+    complete_path_to_02ngdata = os.path.join(path_to_data_loader, "data/proteome_discover/Hannah_Daisha_Reanalysis_with_INFERYS_05172021-PSMs.csv.gz") # We then append the relative path to the data files
     combined_df_02ng = pd.read_csv(complete_path_to_02ngdata)
 
     #get the 2 ng file
@@ -303,5 +303,46 @@ def clean_proteome_discover(file_name):
         file_path = pd_files.get(file_name)
         df = combined_df_2ng[combined_df_2ng["Spectrum File"]==file_path]
 
+
+    return df
+
+
+def NEW_clean_msfragger(file_name):
+    #it came as a combined file, so we need to parse out individual mm_files
+    path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
+    complete_path_to_data = os.path.join(path_to_data_loader, 'data/msfragger/NEW_psm.tsv') # We then append the relative path to the data files
+
+    combined_df = pd.read_csv(complete_path_to_data, sep = '\t') #combined file
+
+    new_msfragger_files = {}
+    new_msfragger_files["2ng_rep1"] = "Ex_Auto_J3_30umTB_2ngQC_60m_1" #keep
+    new_msfragger_files["2ng_rep2"] = "Ex_Auto_J3_30umTB_2ngQC_60m_2" #keep
+    new_msfragger_files["2ng_rep3"] = "Ex_Auto_K13_30umTA_2ngQC_60m_1" 
+    new_msfragger_files["2ng_rep4"] = "Ex_Auto_K13_30umTA_2ngQC_60m_2"
+    new_msfragger_files["2ng_rep5"] = "Ex_Auto_W17_30umTB_2ngQC_60m_1"
+    new_msfragger_files["2ng_rep6"] = "Ex_Auto_W17_30umTB_2ngQC_60m_2" 
+
+    #0.2 ng
+    new_msfragger_files["0.2ng_rep1"] = "Ex_Auto_J3_30umTB_02ngQC_60m_1" #keep
+    new_msfragger_files["0.2ng_rep2"] = "Ex_Auto_J3_30umTB_02ngQC_60m_2" #keep
+    new_msfragger_files["0.2ng_rep3"] = "Ex_Auto_K13_30umTA_02ngQC_60m_1"
+    new_msfragger_files["0.2ng_rep4"] = "Ex_Auto_K13_30umTA_02ngQC_60m_2" 
+    new_msfragger_files["0.2ng_rep5"] = "Ex_Auto_W17_30umTA_02ngQC_60m_3"
+    new_msfragger_files["0.2ng_rep6"] = "Ex_Auto_W17_30umTA_02ngQC_60m_4"
+
+    file_path = new_msfragger_files.get(file_name)
+    df = combined_df[combined_df["Spectrum File"].str.contains(file_path)]
+
+    #make a new col that includes modifide peptides
+    # df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified Peptide", "[147]"), axis=1)
+    # df['temp2'] = np.where(pd.isna(df['temp_peptide']), df['Peptide'], df['temp_peptide'])
+
+    #df = df.assign(temp_peptide=df.apply(lambda row: format_oxidation(row, "Modified Peptide", "[147]"), axis=1))
+    #df = df.assign(temp2=np.where(pd.isna(df['temp_peptide']), df['Peptide'], df['temp_peptide']))
+
+    df = df.rename({"Spectrum":"scan"}, axis=1)
+
+    df["decoy"] = df.apply(lambda row: make_decoy_col_msfragger(row), axis=1)
+    # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
