@@ -1,0 +1,997 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset1 Segoe UI Symbol;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 ================================================================================\par
+Consensus Step : Workflow\par
+================================================================================\par
+Result name: Hannah_Daisha_Reanalysis_with_INFERYS_05172021\par
+Result file: C:\\Users\\RTK\\Desktop\\Hannah\\benchmark_2ng_02ng\\Hannah_Daisha_Reanalysis_with_INFERYS_05172021.pdResult\par
+Description: Result filtered for high confident peptides.\par
+Workflow based on template: CWF_Basic\par
+Creation date: 5/17/2021 2:22:16 PM\par
+Created with Discoverer version: 2.5.0.400\par
+\par
+\par
+------------------------------------------------------------------\par
+The workflow tree:\par
+------------------------------------------------------------------\par
+\par
+  |-(0) MSF Files\par
+    |-(1) PSM Grouper\par
+      |-(2) Peptide Validator\par
+        |-(3) Peptide and Protein Filter\par
+          |-(4) Protein Scorer\par
+            |-(5) Protein Grouping\par
+            |-(6) Protein FDR Validator\par
+\par
+Post-processing nodes:\par
+--------------------------------\par
+\par
+  |-(7) Display Settings\par
+\par
+------------------------------------------------------------------\par
+Processing node 0: MSF Files\par
+------------------------------------------------------------------\par
+1. Storage Settings:\par
+- Spectra to Store:  Identified or Quantified\par
+- Feature Traces to Store:  All\par
+\par
+2. Merging of Identified Peptide and Proteins:\par
+- Merge Mode:  Globally by Search Engine Type\par
+\par
+3. FASTA Title Line Display:\par
+- Reported FASTA Title Lines:  Best match\par
+- Title Line Rule:  standard\par
+\par
+4. PSM Filters:\par
+- Maximum Delta Cn:  0.05\par
+- Maximum Rank:  0\par
+- Maximum Delta Mass:  0 ppm\par
+\par
+Hidden Parameters:\par
+- MSF File(s):  C:\\Users\\RTK\\Desktop\\Hannah\\benchmark_2ng_02ng\\Hannah_Daisha_Reanalysis_with_INFERYS_05172021.msf\par
+\par
+------------------------------------------------------------------\par
+Processing node 1: PSM Grouper\par
+------------------------------------------------------------------\par
+1. Peptide Group Modifications:\par
+- Site Probability Threshold:  75\par
+\par
+------------------------------------------------------------------\par
+Processing node 2: Peptide Validator\par
+------------------------------------------------------------------\par
+1. General Validation Settings:\par
+- Validation Mode:  Automatic (Control peptide level error rate if possible)\par
+- Target FDR (Strict) for PSMs:  1\par
+- Target FDR (Relaxed) for PSMs:  1\par
+- Target FDR (Strict) for Peptides:  1\par
+- Target FDR (Relaxed) for Peptides:  1\par
+\par
+2. Specific Validation Settings:\par
+- Validation Based on:  q-Value\par
+- Target/Decoy Selection for PSM Level FDR Calculation Based on Score:  Automatic\par
+- Reset Confidences for Nodes without Decoy Search (Fixed score thresholds):  False\par
+\par
+------------------------------------------------------------------\par
+Processing node 3: Peptide and Protein Filter\par
+------------------------------------------------------------------\par
+1. Peptide Filters:\par
+- Peptide Confidence At Least:  Low\par
+- Keep Lower Confident PSMs:  True\par
+- Minimum Peptide Length:  8\par
+- Remove Peptides Without Protein Reference:  False\par
+\par
+2. Protein Filters:\par
+- Minimum Number of Peptide Sequences:  1\par
+- Count Only Rank 1 Peptides:  False\par
+- Count Peptides Only for Top Scored Protein:  False\par
+\par
+------------------------------------------------------------------\par
+Processing node 4: Protein Scorer\par
+------------------------------------------------------------------\par
+No parameters\par
+\par
+------------------------------------------------------------------\par
+Processing node 5: Protein Grouping\par
+------------------------------------------------------------------\par
+1. Protein Grouping:\par
+- Apply strict parsimony principle:  False\par
+\par
+------------------------------------------------------------------\par
+Processing node 6: Protein FDR Validator\par
+------------------------------------------------------------------\par
+1. Confidence Thresholds:\par
+- Target FDR (Strict):  1\par
+- Target FDR (Relaxed):  1\par
+\par
+------------------------------------------------------------------\par
+Processing node 7: Display Settings\par
+------------------------------------------------------------------\par
+1. General:\par
+- Filter Set:\par
+\tab ###   Filter Set MasterProteinFilter.filterset contains the following filters:\par
+\tab ###   Row Filter for TargetProtein:\par
+\tab ###   Master is equal to Master\par
+\tab ###\par
+\tab\par
+\tab 'magellan filter set' 1 'MasterProteinFilter.filterset'  FiltersetProperties 1  'LastFileName' 'C:\\Users\\frank.berg\\Desktop\\MasterProteinFilter.filterset' Filter 'TargetProtein' 1 NARY_AND 1 = FilterConditionProperties 1  'NamedComparableFilterCondition/DisplayPropertyHint' 'Master' property 'Thermo.PD.EntityDataFramework.MasterProteinAssessment, Thermo.Magellan.EntityDataFramework' 'IsMasterProtein' constant 'Thermo.PD.EntityDataFramework.MasterProteinAssessment, Thermo.Magellan.EntityDataFramework' 'IsMasterProtein'\par
+\par
+\par
+------------------------------------------------------------------\par
+Workflow messages:\par
+------------------------------------------------------------------\par
+05/18/2021 03:35 PM\tab Job Execution:\tab Processing C:\\Users\\RTK\\Desktop\\Hannah\\benchmark_2ng_02ng\\Hannah_Daisha_Reanalysis_with_INFERYS_05172021.pdResult\par
+05/18/2021 03:35 PM\tab (0) MSF Files:\tab C:\\Users\\RTK\\Desktop\\Hannah\\benchmark_2ng_02ng\\Hannah_Daisha_Reanalysis_with_INFERYS_05172021.msf\par
+05/18/2021 03:35 PM\tab (0) MSF Files:\tab All 1 files are ready for processing.\par
+05/18/2021 03:35 PM\tab (0) MSF Files:\tab Start transferring results of 1 msf files...\par
+05/18/2021 03:38 PM\tab (0) MSF Files:\tab Transferred 15285 Proteins to result file in 2 min 40 s.\par
+05/18/2021 03:40 PM\tab (0) MSF Files:\tab Transferred 14603 Decoy Proteins to result file in 2 min 30 s.\par
+05/18/2021 03:45 PM\tab (0) MSF Files:\tab Added 240295 Mass Spectra to result file.\par
+05/18/2021 03:45 PM\tab (0) MSF Files:\tab Added 24 traces to result file.\par
+05/18/2021 03:45 PM\tab (0) MSF Files:\tab Added 12 Input Files to result file.\par
+05/18/2021 03:45 PM\tab (0) MSF Files:\tab Added 353461 PSMs to result file.\par
+05/18/2021 03:45 PM\tab (0) MSF Files:\tab Added 131578 Decoy PSMs to result file.\par
+05/18/2021 03:45 PM\tab (0) MSF Files:\tab Added 288627 MS/MS Spectrum Info to result file.\par
+05/18/2021 03:46 PM\tab (0) MSF Files:\tab Added 288627 Precursors to result file.\par
+05/18/2021 03:46 PM\tab (0) MSF Files:\tab Added 12 Mass Recalibrations to result file.\par
+05/18/2021 03:46 PM\tab (0) MSF Files:\tab Added 47933 Correction Landmarks to result file.\par
+05/18/2021 03:46 PM\tab (0) MSF Files:\tab Added 24 Specialized Traces to result file.\par
+05/18/2021 03:47 PM\tab (0) MSF Files:\tab Copying data took 12 min 14 s.\par
+05/18/2021 03:48 PM\tab (0) MSF Files:\tab Finding unique sequences took 25.1 s.\par
+05/18/2021 03:48 PM\tab (0) MSF Files:\tab Filtering proteins took 11.3 s.\par
+05/18/2021 03:49 PM\tab (0) MSF Files:\tab -- Total execution of MSF Files (0) took 14 min 22 s --\par
+05/18/2021 03:49 PM\tab (1) PSM Grouper:\tab Grouping 'PSMs'\par
+05/18/2021 03:52 PM\tab (1) PSM Grouper:\tab Found 58772 Peptide Groups.\par
+05/18/2021 03:52 PM\tab (1) PSM Grouper:\tab Grouping 'Decoy PSMs'\par
+05/18/2021 03:53 PM\tab (1) PSM Grouper:\tab Found 40184 Decoy Peptide Groups.\par
+05/18/2021 03:53 PM\tab (1) PSM Grouper:\tab -- Total execution of PSM Grouper (1) took 3 min 34 s --\par
+05/18/2021 03:53 PM\tab (2) Peptide Validator:\tab Start PSM and Peptide validation in 'Automatic (Control peptide level error rate if possible)' mode...\par
+05/18/2021 03:53 PM\tab (2) Peptide Validator:\tab Updated PSM confidences in 5.8 s.\par
+05/18/2021 03:53 PM\tab (2) Peptide Validator:\tab Use svm score for 'peptide' qvality run.\par
+05/18/2021 03:54 PM\tab (2) Peptide Validator:\tab Updated peptide confidences using qvality in 23.7 s.\par
+05/18/2021 03:54 PM\tab (2) Peptide Validator:\tab Calculating Mascot thresholds.\par
+05/18/2021 03:54 PM\tab (2) Peptide Validator:\tab -- Total execution of Peptide Validator (2) took 30.1 s --\par
+05/18/2021 03:54 PM\tab (3) Peptide and Protein Filter:\tab Filter Peptide Groups\par
+05/18/2021 03:54 PM\tab (3) Peptide and Protein Filter:\tab Filter 58772/58772 Peptide Groups (0 excluded) and 353461/353461 PSMs (0 excluded) took 8 s\par
+05/18/2021 03:54 PM\tab (3) Peptide and Protein Filter:\tab Skip filtering of Proteins as none will be excluded!\par
+05/18/2021 03:54 PM\tab (3) Peptide and Protein Filter:\tab Filter Decoy Peptide Groups\par
+05/18/2021 03:54 PM\tab (3) Peptide and Protein Filter:\tab Filter 40184/40184 Decoy Peptide Groups (0 excluded) and 131578/131578 Decoy PSMs (0 excluded) took 2.3 s\par
+05/18/2021 03:54 PM\tab (3) Peptide and Protein Filter:\tab Skip filtering of Decoy Proteins as none will be excluded!\par
+05/18/2021 03:55 PM\tab (3) Peptide and Protein Filter:\tab Updating counts took 53.9 s.\par
+05/18/2021 03:55 PM\tab (3) Peptide and Protein Filter:\tab -- Total execution of Peptide and Protein Filter (3) took 1 min 4 s --\par
+05/18/2021 03:55 PM\tab (4) Protein Scorer:\tab Calculating Coverage and Counts\par
+05/18/2021 03:55 PM\tab (4) Protein Scorer:\tab Calculated counts and coverages in 18.8 s.\par
+05/18/2021 03:55 PM\tab (4) Protein Scorer:\tab Scoring target proteins\par
+05/18/2021 03:56 PM\tab (4) Protein Scorer:\tab Scored 15285 proteins in 44.6 s.\par
+05/18/2021 03:56 PM\tab (4) Protein Scorer:\tab Scoring decoy proteins\par
+05/18/2021 03:56 PM\tab (4) Protein Scorer:\tab Scored 14603 decoy proteins in 14.6 s.\par
+05/18/2021 03:56 PM\tab (4) Protein Scorer:\tab -- Total execution of Protein Scorer (4) took 1 min 18 s --\par
+05/18/2021 03:56 PM\tab (5) Protein Grouping:\tab Retrieving 14548 protein groups took 8.8 s.\par
+05/18/2021 03:57 PM\tab (5) Protein Grouping:\tab Storing, updating and connecting protein groups, PSMs and peptides took 36.8 s.\par
+05/18/2021 03:57 PM\tab (5) Protein Grouping:\tab Found 14548 protein groups.\par
+05/18/2021 03:57 PM\tab (5) Protein Grouping:\tab Retrieving 13935 decoy protein groups took 8.9 s.\par
+05/18/2021 03:57 PM\tab (5) Protein Grouping:\tab Storing, updating and connecting protein groups, PSMs and peptides took 12.7 s.\par
+05/18/2021 03:57 PM\tab (5) Protein Grouping:\tab Found 13935 decoy protein groups.\par
+05/18/2021 03:58 PM\tab (5) Protein Grouping:\tab -- Total execution of Protein Grouping (5) took 1 min 40 s --\par
+05/18/2021 03:58 PM\tab (6) Protein FDR Validator:\tab Apply confidences based on protein scores of 15285 proteins.\par
+05/18/2021 03:58 PM\tab (6) Protein FDR Validator:\tab Calculating Sum PEP Score for Proteins\par
+05/18/2021 03:58 PM\tab (6) Protein FDR Validator:\tab Calculating Sum PEP Score for Decoy Proteins\par
+05/18/2021 03:58 PM\tab (6) Protein FDR Validator:\tab -- Total execution of Protein FDR Validator (6) took 21.2 s --\par
+05/18/2021 03:58 PM\tab (7) Display Settings:\tab Applying display filter and layout\par
+05/18/2021 03:58 PM\tab (7) Display Settings:\tab -- Total execution of Display Settings (7) took 110.3 ms --\par
+05/18/2021 03:58 PM\tab Job Execution:\tab Finalizing file took 31.8 s.\par
+05/18/2021 03:58 PM\tab Job Execution:\tab Finished C:\\Users\\RTK\\Desktop\\Hannah\\benchmark_2ng_02ng\\Hannah_Daisha_Reanalysis_with_INFERYS_05172021.pdResult\par
+05/18/2021 03:58 PM\tab Job Execution:\tab ----- Total Job execution took: 23 min 24 s. -----\par
+\par
+================================================================================\par
+Processing Step A: Workflow\par
+================================================================================\par
+Result name: Hannah_Daisha_Reanalysis_with_INFERYS_05172021\par
+Result file: C:\\Users\\RTK\\Desktop\\Hannah\\benchmark_2ng_02ng\\Hannah_Daisha_Reanalysis_with_INFERYS_05172021.msf\par
+Description: Processing workflow for precursor-based quantification, using SequestHT with Multi Peptide Search and Percolator validation. Specify the FASTA database, labels used, and any additional modifications.\par
+Workflow based on template: PWF_QE_Precursor_Quan_and_LFQ_MPS_SequestHT_Percolator\par
+Creation date: 5/17/2021 2:22:15 PM\par
+Created with Discoverer version: 2.5.0.400\par
+\par
+\par
+------------------------------------------------------------------\par
+The workflow tree:\par
+------------------------------------------------------------------\par
+\par
+  |-(0) Spectrum Files RC\par
+    |-(1) Spectrum Selector\par
+      |-(2) Sequest HT\par
+            |-(3) Percolator\par
+      |-(4) Spectrum Properties Filter\par
+        |-(5) Sequest HT\par
+          |-(6) INFERYS Rescoring\par
+            |-(3) Percolator\par
+\par
+------------------------------------------------------------------\par
+Processing node 0: Spectrum Files RC\par
+------------------------------------------------------------------\par
+1. Search Settings:\par
+- File Name(s) (Hidden):\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_J3_30umTB_02ngQC_60m_1.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_J3_30umTB_02ngQC_60m_2.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_J3_30umTB_2ngQC_60m_1.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_J3_30umTB_2ngQC_60m_2.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_K13_30umTA_02ngQC_60m_1.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_K13_30umTA_02ngQC_60m_2.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_K13_30umTA_2ngQC_60m_1.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_K13_30umTA_2ngQC_60m_2.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_W17_30umTA_02ngQC_60m_3.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_W17_30umTA_02ngQC_60m_4.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_W17_30umTB_2ngQC_60m_1.raw\par
+\tab C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_W17_30umTB_2ngQC_60m_2.raw\par
+- Protein Database:  uniprot-reviewed_yes+taxonomy_9606_07052020.fasta\par
+- Enzyme Name:  Trypsin (Full)\par
+- Precursor Mass Tolerance:  20 ppm\par
+- Fragment Mass Tolerance:  0.5 Da\par
+- 1. Static Modification:  Carbamidomethyl / +57.021 Da (C)\par
+\par
+2. Regression Settings:\par
+- Regression Model:  Non-linear Regression\par
+- Parameter Tuning:  Coarse\par
+\par
+------------------------------------------------------------------\par
+Processing node 1: Spectrum Selector\par
+------------------------------------------------------------------\par
+1. General Settings:\par
+- Precursor Selection:  Use MS1 Precursor\par
+- Use Isotope Pattern in Precursor Reevaluation:  True\par
+- Provide Profile Spectra:  Automatic\par
+\par
+2. Spectrum Properties Filter:\par
+- Lower RT Limit:  0\par
+- Upper RT Limit:  0\par
+- First Scan:  0\par
+- Last Scan:  0\par
+- Lowest Charge State:  0\par
+- Highest Charge State:  0\par
+- Min. Precursor Mass:  350 Da\par
+- Max. Precursor Mass:  6000 Da\par
+- Total Intensity Threshold:  0\par
+- Minimum Peak Count:  1\par
+\par
+3. Scan Event Filters:\par
+- MS Order:  Is Not MS1\par
+- Min. Collision Energy:  0\par
+- Max. Collision Energy:  1000\par
+- Scan Type:  Is Full\par
+\par
+4. Peak Filters:\par
+- S/N Threshold (FT-only):  1.5\par
+\par
+5. Replacements for Unrecognized Properties:\par
+- Unrecognized Charge Replacements:  Automatic\par
+- Unrecognized Mass Analyzer Replacements:  ITMS\par
+- Unrecognized MS Order Replacements:  MS2\par
+- Unrecognized Activation Type Replacements:  CID\par
+- Unrecognized Polarity Replacements:  +\par
+- Unrecognized MS Resolution@200 Replacements:  60000\par
+- Unrecognized MSn Resolution@200 Replacements:  30000\par
+\par
+6. Precursor Pattern Extraction:\par
+- Precursor Clipping Range Before:  2.5 Da\par
+- Precursor Clipping Range After:  5.5 Da\par
+\par
+------------------------------------------------------------------\par
+Processing node 2: Sequest HT\par
+------------------------------------------------------------------\par
+1. Input Data:\par
+- Protein Database:  uniprot-reviewed_yes+taxonomy_9606_07052020.fasta\par
+- Enzyme Name:  Trypsin (Full)\par
+- Max. Missed Cleavage Sites:  2\par
+- Min. Peptide Length:  8\par
+- Max. Peptide Length:  30\par
+- Max. Number of Peptides Reported:  10\par
+\par
+2. Tolerances:\par
+- Precursor Mass Tolerance:  20 ppm\par
+- Fragment Mass Tolerance:  0.02 Da\par
+- Use Average Precursor Mass:  False\par
+- Use Average Fragment Mass:  False\par
+\par
+3. Spectrum Matching:\par
+- Use Neutral Loss a Ions:  True\par
+- Use Neutral Loss b Ions:  True\par
+- Use Neutral Loss y Ions:  True\par
+- Use Flanking Ions:  True\par
+- Weight of a Ions:  0\par
+- Weight of b Ions:  1\par
+- Weight of c Ions:  0\par
+- Weight of x Ions:  0\par
+- Weight of y Ions:  1\par
+- Weight of z Ions:  0\par
+\par
+4. Dynamic Modifications:\par
+- Max. Equal Modifications Per Peptide:  2\par
+- Max. Dynamic Modifications Per Peptide:  2\par
+- 1. Dynamic Modification:  Oxidation / +15.995 Da (M)\par
+\par
+7. Static Modifications:\par
+- 1. Static Modification:  Carbamidomethyl / +57.021 Da (C)\par
+\par
+------------------------------------------------------------------\par
+Processing node 3: Percolator\par
+------------------------------------------------------------------\par
+1. Target/Decoy Strategy:\par
+- Target/Decoy Selection:  Concatenated\par
+- Validation based on:  q-Value\par
+\par
+2. Input Data:\par
+- Maximum Delta Cn:  0.05\par
+- Maximum Rank:  0\par
+\par
+3. FDR Targets:\par
+- Target FDR (Strict):  1\par
+- Target FDR (Relaxed):  1\par
+\par
+------------------------------------------------------------------\par
+Processing node 4: Spectrum Properties Filter\par
+------------------------------------------------------------------\par
+1. Spectrum Properties:\par
+- Lower RT Limit:  0\par
+- Upper RT Limit:  0\par
+- Lowest Charge State:  2\par
+- Highest Charge State:  6\par
+- Min. Precursor Mass:  0 Da\par
+- Max. Precursor Mass:  0 Da\par
+\par
+2. Spectrum Properties Filter:\par
+- First Scan:  0\par
+- Last Scan:  0\par
+\par
+3. Thresholds:\par
+- Total Intensity Threshold:  0\par
+- Minimum Peak Count:  1\par
+\par
+4. Filter Spectra by Peak Properties:\par
+- Filter Mode:  Pass Through Matching Spectra\par
+- Match Tolerance:  0.02 Da\par
+\par
+------------------------------------------------------------------\par
+Processing node 5: Sequest HT\par
+------------------------------------------------------------------\par
+1. Input Data:\par
+- Protein Database:  uniprot-reviewed_yes+taxonomy_9606_07052020.fasta\par
+- Enzyme Name:  Trypsin (Full)\par
+- Max. Missed Cleavage Sites:  2\par
+- Min. Peptide Length:  8\par
+- Max. Peptide Length:  30\par
+- Max. Number of Peptides Reported:  10\par
+\par
+2. Tolerances:\par
+- Precursor Mass Tolerance:  20 ppm\par
+- Fragment Mass Tolerance:  0.02 Da\par
+- Use Average Precursor Mass:  False\par
+- Use Average Fragment Mass:  False\par
+\par
+3. Spectrum Matching:\par
+- Use Neutral Loss a Ions:  True\par
+- Use Neutral Loss b Ions:  True\par
+- Use Neutral Loss y Ions:  True\par
+- Use Flanking Ions:  True\par
+- Weight of a Ions:  0\par
+- Weight of b Ions:  1\par
+- Weight of c Ions:  0\par
+- Weight of x Ions:  0\par
+- Weight of y Ions:  1\par
+- Weight of z Ions:  0\par
+\par
+4. Dynamic Modifications:\par
+- Max. Equal Modifications Per Peptide:  2\par
+- Max. Dynamic Modifications Per Peptide:  2\par
+- 1. Dynamic Modification:  Oxidation / +15.995 Da (M)\par
+\par
+7. Static Modifications:\par
+- 1. Static Modification:  Carbamidomethyl / +57.021 Da (C)\par
+\par
+------------------------------------------------------------------\par
+Processing node 6: INFERYS Rescoring\par
+------------------------------------------------------------------\par
+General:\par
+- Automatic Mode:  True\par
+- Collision Energy:  28\par
+\par
+\par
+------------------------------------------------------------------\par
+Workflow messages:\par
+------------------------------------------------------------------\par
+05/17/2021 02:22 PM\tab Job Execution:\tab Processing C:\\Users\\RTK\\Desktop\\Hannah\\benchmark_2ng_02ng\\Hannah_Daisha_Reanalysis_with_INFERYS_05172021.msf\par
+05/17/2021 02:22 PM\tab (0) Spectrum Files RC:\tab Start processing file F1: Ex_Auto_J3_30umTB_02ngQC_60m_1.raw...\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Retrieving 14859 spectra took 38.3 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab FastaDatabase: uniprot-reviewed_yes+taxonomy_9606_07052020(606ded90-2df1-4ebd-bb65-8529a0975329).fasta Enzyme: Trypsin[Full] MaxMissedCleavages: 2 MassRange: 300 - 16000 MonoIsotopicPrecursorMass: True Static mod.: C = 57.021464 U = 99999.99 \par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Start creating digest for uniprot-reviewed_yes+taxonomy_9606_07052020(606ded90-2df1-4ebd-bb65-8529a0975329).fasta\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Digesting 20306 proteins took 3.0 s.\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 1 took 5.8 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 2 took 3.6 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 3 took 1.7 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 4 took 0.8 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 5 took 0.2 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 6 took 0.1 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 7 took 0.1 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 8 took 0.1 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 9 took 0.1 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Sorting file 10 took 0.0 s\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Total digest took 15.8 s.\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab FASTA indexing (target) completed in 20 s.\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:23:24 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.8 ms.\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Processing file F1 took 1 min 17 s.\par
+05/17/2021 02:23 PM\tab (0) Spectrum Files RC:\tab Start processing file F2: Ex_Auto_J3_30umTB_02ngQC_60m_2.raw...\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Retrieving 14946 spectra took 35.5 s\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:24:18 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.8 ms.\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Processing file F2 took 53.6 s.\par
+05/17/2021 02:24 PM\tab (0) Spectrum Files RC:\tab Start processing file F3: Ex_Auto_J3_30umTB_2ngQC_60m_1.raw...\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Retrieving 32589 spectra took 52 s\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:25:28 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.6 ms.\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Processing file F3 took 1 min 21 s.\par
+05/17/2021 02:25 PM\tab (0) Spectrum Files RC:\tab Start processing file F4: Ex_Auto_J3_30umTB_2ngQC_60m_2.raw...\par
+05/17/2021 02:26 PM\tab (0) Spectrum Files RC:\tab Retrieving 30032 spectra took 54.4 s\par
+05/17/2021 02:26 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:26 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:26:53 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:26 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:26 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:26 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:27 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.8 ms.\par
+05/17/2021 02:27 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:27 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:27 PM\tab (0) Spectrum Files RC:\tab Processing file F4 took 1 min 26 s.\par
+05/17/2021 02:27 PM\tab (0) Spectrum Files RC:\tab Start processing file F5: Ex_Auto_K13_30umTA_02ngQC_60m_1.raw...\par
+05/17/2021 02:27 PM\tab (0) Spectrum Files RC:\tab Retrieving 16237 spectra took 35.1 s\par
+05/17/2021 02:27 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:27 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:27:59 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.8 ms.\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Processing file F5 took 54 s.\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Start processing file F6: Ex_Auto_K13_30umTA_02ngQC_60m_2.raw...\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Retrieving 15157 spectra took 33.2 s\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:28:52 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:28 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:29 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.7 ms.\par
+05/17/2021 02:29 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:29 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:29 PM\tab (0) Spectrum Files RC:\tab Processing file F6 took 51.3 s.\par
+05/17/2021 02:29 PM\tab (0) Spectrum Files RC:\tab Start processing file F7: Ex_Auto_K13_30umTA_2ngQC_60m_1.raw...\par
+05/17/2021 02:29 PM\tab (0) Spectrum Files RC:\tab Retrieving 32110 spectra took 49.9 s\par
+05/17/2021 02:29 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:30 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:30:00 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:30 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:30 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:30 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:30 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 1.8 ms.\par
+05/17/2021 02:30 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:30 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:31 PM\tab (0) Spectrum Files RC:\tab Processing file F7 took 1 min 56 s.\par
+05/17/2021 02:31 PM\tab (0) Spectrum Files RC:\tab Start processing file F8: Ex_Auto_K13_30umTA_2ngQC_60m_2.raw...\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Retrieving 29158 spectra took 56.6 s\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:32:03 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.7 ms.\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Processing file F8 took 1 min 25 s.\par
+05/17/2021 02:32 PM\tab (0) Spectrum Files RC:\tab Start processing file F9: Ex_Auto_W17_30umTA_02ngQC_60m_3.raw...\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Retrieving 19091 spectra took 40.4 s\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:33:12 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.6 ms.\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Processing file F9 took 60 s.\par
+05/17/2021 02:33 PM\tab (0) Spectrum Files RC:\tab Start processing file F10: Ex_Auto_W17_30umTA_02ngQC_60m_4.raw...\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Retrieving 19791 spectra took 42.2 s\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:34:14 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.6 ms.\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Processing file F10 took 1 min 2 s.\par
+05/17/2021 02:34 PM\tab (0) Spectrum Files RC:\tab Start processing file F11: Ex_Auto_W17_30umTB_2ngQC_60m_1.raw...\par
+05/17/2021 02:35 PM\tab (0) Spectrum Files RC:\tab Retrieving 33576 spectra took 1 min 5 s\par
+05/17/2021 02:35 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:35 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:35:40 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:35 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:35 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:35 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:36 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.7 ms.\par
+05/17/2021 02:36 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:36 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:36 PM\tab (0) Spectrum Files RC:\tab Processing file F11 took 1 min 37 s.\par
+05/17/2021 02:36 PM\tab (0) Spectrum Files RC:\tab Start processing file F12: Ex_Auto_W17_30umTB_2ngQC_60m_2.raw...\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab Retrieving 31086 spectra took 1 min 2 s\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab Start searching spectra (HCD (High Energy Collision Dissociation))...\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:37:15 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab On-Disk search is performed\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab Average search time per spectrum was 0.7 ms.\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab Start reading spectrum results...\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab Start calculating calibration...\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab Processing file F12 took 1 min 32 s.\par
+05/17/2021 02:37 PM\tab (0) Spectrum Files RC:\tab -- Total execution of Spectrum Files RC (0) took 15 min 19 s --\par
+05/17/2021 02:37 PM\tab (1) Spectrum Selector:\tab Profile spectra are not sent.\par
+05/17/2021 02:37 PM\tab (1) Spectrum Selector:\tab Reading from file 1 of 12 F1: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_J3_30umTB_02ngQC_60m_1.raw (27767 spectra total)\par
+05/17/2021 02:37 PM\tab (2) Sequest HT:\tab Sequence Database: uniprot-reviewed_yes+taxonomy_9606_07052020.fasta\par
+05/17/2021 02:37 PM\tab (5) Sequest HT:\tab Sequence Database: uniprot-reviewed_yes+taxonomy_9606_07052020.fasta\par
+05/17/2021 02:38 PM\tab (1) Spectrum Selector:\tab Sent 14858 spectra from file F1.\par
+05/17/2021 02:38 PM\tab (1) Spectrum Selector:\tab Reading from file 2 of 12 F2: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_J3_30umTB_02ngQC_60m_2.raw (28099 spectra total)\par
+05/17/2021 02:38 PM\tab (1) Spectrum Selector:\tab Sent 14945 spectra from file F2.\par
+05/17/2021 02:38 PM\tab (1) Spectrum Selector:\tab Reading from file 3 of 12 F3: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_J3_30umTB_2ngQC_60m_1.raw (44615 spectra total)\par
+05/17/2021 02:40 PM\tab (1) Spectrum Selector:\tab Sent 32589 spectra from file F3.\par
+05/17/2021 02:40 PM\tab (1) Spectrum Selector:\tab Reading from file 4 of 12 F4: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_J3_30umTB_2ngQC_60m_2.raw (42632 spectra total)\par
+05/17/2021 02:41 PM\tab (1) Spectrum Selector:\tab Sent 30032 spectra from file F4.\par
+05/17/2021 02:41 PM\tab (1) Spectrum Selector:\tab Reading from file 5 of 12 F5: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_K13_30umTA_02ngQC_60m_1.raw (30073 spectra total)\par
+05/17/2021 02:42 PM\tab (1) Spectrum Selector:\tab Sent 16236 spectra from file F5.\par
+05/17/2021 02:42 PM\tab (1) Spectrum Selector:\tab Reading from file 6 of 12 F6: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_K13_30umTA_02ngQC_60m_2.raw (29536 spectra total)\par
+05/17/2021 02:43 PM\tab (1) Spectrum Selector:\tab Sent 15156 spectra from file F6.\par
+05/17/2021 02:43 PM\tab (1) Spectrum Selector:\tab Reading from file 7 of 12 F7: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_K13_30umTA_2ngQC_60m_1.raw (45156 spectra total)\par
+05/17/2021 02:44 PM\tab (1) Spectrum Selector:\tab Sent 32110 spectra from file F7.\par
+05/17/2021 02:44 PM\tab (1) Spectrum Selector:\tab Reading from file 8 of 12 F8: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_K13_30umTA_2ngQC_60m_2.raw (43632 spectra total)\par
+05/17/2021 02:46 PM\tab (1) Spectrum Selector:\tab Sent 29158 spectra from file F8.\par
+05/17/2021 02:46 PM\tab (1) Spectrum Selector:\tab Reading from file 9 of 12 F9: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_W17_30umTA_02ngQC_60m_3.raw (31359 spectra total)\par
+05/17/2021 02:47 PM\tab (1) Spectrum Selector:\tab Sent 19091 spectra from file F9.\par
+05/17/2021 02:47 PM\tab (1) Spectrum Selector:\tab Reading from file 10 of 12 F10: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_W17_30umTA_02ngQC_60m_4.raw (31675 spectra total)\par
+05/17/2021 02:48 PM\tab (1) Spectrum Selector:\tab Sent 19790 spectra from file F10.\par
+05/17/2021 02:48 PM\tab (1) Spectrum Selector:\tab Reading from file 11 of 12 F11: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_W17_30umTB_2ngQC_60m_1.raw (46998 spectra total)\par
+05/17/2021 02:50 PM\tab (1) Spectrum Selector:\tab Sent 33576 spectra from file F11.\par
+05/17/2021 02:50 PM\tab (1) Spectrum Selector:\tab Reading from file 12 of 12 F12: C:\\Users\\RTK\\Desktop\\Hannah\\Ex_Auto_W17_30umTB_2ngQC_60m_2.raw (44858 spectra total)\par
+05/17/2021 02:51 PM\tab (1) Spectrum Selector:\tab Sent 31086 spectra from file F12.\par
+05/17/2021 02:51 PM\tab (1) Spectrum Selector:\tab Sent 288627 spectra from 12 files (processing time: 7 min 16 s).\par
+05/17/2021 02:51 PM\tab (1) Spectrum Selector:\tab -- Total execution of Spectrum Selector (1) took 14 min 10 s --\par
+05/17/2021 02:51 PM\tab (2) Sequest HT:\tab Storing spectra took 5 min 30 s.\par
+05/17/2021 02:51 PM\tab (2) Sequest HT:\tab There is already an adequate target FASTA index for uniprot-reviewed_yes+taxonomy_9606_07052020(606ded90-2df1-4ebd-bb65-8529a0975329).fasta.\par
+05/17/2021 02:51 PM\tab (2) Sequest HT:\tab Start Sequest HT target search for 288627 spectra (288627 precursors)...\par
+05/17/2021 02:51 PM\tab (2) Sequest HT:\tab Ise (2.0.0.24, x64) started at 5/17/2021 2:51:57 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 02:51 PM\tab (2) Sequest HT:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 02:51 PM\tab (2) Sequest HT:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 02:51 PM\tab (2) Sequest HT:\tab On-Disk search is performed\par
+05/17/2021 04:30 PM\tab (2) Sequest HT:\tab Average search time per spectrum was 20.4 ms.\par
+05/17/2021 04:30 PM\tab (2) Sequest HT:\tab Performing target search took 1 h 38 min.\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Stored 321042 PSMs for 288627 spectra\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Reading search results took 37.2 s.\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Saving results took 31.1 s.\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Saving proteins took 9.9 s.\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Reading results took 1 min 18 s.\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab FastaDatabase: uniprot-reviewed_yes+taxonomy_9606_07052020(606ded90-2df1-4ebd-bb65-8529a0975329)_reversed.fasta Enzyme: Trypsin[Full] MaxMissedCleavages: 2 MassRange: 350 - 6000 MonoIsotopicPrecursorMass: True Static mod.: C = 57.021464 U = 99999.99 \par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Start creating digest for uniprot-reviewed_yes+taxonomy_9606_07052020(606ded90-2df1-4ebd-bb65-8529a0975329)_reversed.fasta\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Digesting 20306 proteins took 3.3 s.\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 1 took 2.4 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 2 took 2.6 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 3 took 2.1 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 4 took 1.5 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 5 took 1.2 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 6 took 0.9 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 7 took 0.8 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 8 took 0.5 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 9 took 0.2 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Sorting file 10 took 0.2 s\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Total digest took 16.1 s.\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab FASTA indexing (decoy) completed in 17.5 s.\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Start Sequest HT decoy search for 288627 spectra (288627 precursors)...\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Ise (2.0.0.24, x64) started at 5/17/2021 4:31:48 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 04:31 PM\tab (2) Sequest HT:\tab On-Disk search is performed\par
+05/17/2021 04:36 PM\tab (2) Sequest HT:\tab Average search time per spectrum was 1.0 ms.\par
+05/17/2021 04:36 PM\tab (2) Sequest HT:\tab Performing decoy search took 4 min 49 s.\par
+05/17/2021 04:37 PM\tab (2) Sequest HT:\tab Stored 691659 decoy PSMs for 288627 spectra\par
+05/17/2021 04:37 PM\tab (2) Sequest HT:\tab Reading search results took 37.3 s.\par
+05/17/2021 04:37 PM\tab (2) Sequest HT:\tab Saving results took 33.6 s.\par
+05/17/2021 04:37 PM\tab (2) Sequest HT:\tab Saving proteins took 5.6 s.\par
+05/17/2021 04:37 PM\tab (2) Sequest HT:\tab Reading results took 1 min 16 s.\par
+05/17/2021 04:37 PM\tab (2) Sequest HT:\tab Finalizing search results...\par
+05/17/2021 04:39 PM\tab (2) Sequest HT:\tab -- Total search time was 1 h 46 min --\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Creating percolator input file with results from Sequest HT (2) took 6 min 50 s.\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab The input file contains 231834 PSMs, 123215 decoy PSMs and 32 features.\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Generated percolator input for concatenated mode\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Percolator version 3.05.0, Build Date May 18 2020 02:35:01\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Copyright (c) 2006-9 University of Washington. All rights reserved.\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Written by Lukas K\f1\u9500?\f0\'f1ll (lukall@u.washington.edu) in the\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Department of Genome Sciences at the University of Washington.\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Issued command:\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab C:\\Program Files\\Thermo\\Proteome Discoverer 2.5\\Tools\\Percolator\\win\\percolator.exe --num-threads 3 -s -X C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\Percol(3)\\output2.xml -N 0 -Z -Y C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\Percol(3)\\input2.tab\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Started Mon May 17 16:46:48 2021\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Hyperparameters: selectionFdr=0.01, Cpos=0, Cneg=0, maxNiter=10\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Reading tab-delimited input from datafile C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\Percol(3)\\input2.tab\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Features:\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab XCorr Delta Cn From Second PSM Binomial Score Isolation Interference [%] MH+ [Da] Delta Mass [Da] Delta Mass [ppm] Absolute Delta Mass [Da] Absolute Delta Mass [ppm] Peptide Length Is z=1 Is z=2 Is z=3 Is z=4 Is z=5 Is z>5 # Missed Cleavages Log Peptides Matched Log Total Intensity Fraction Matched Intensity [%] Fragment Coverage Series A, B, C [%] Fragment Coverage Series X, Y, Z [%] Log Matched Fragment Series Intensities A, B, C Log Matched Fragment Series Intensities X, Y, Z Longest Sequence Series A, B, C Longest Sequence Series X, Y, Z IQR Fragment Delta Mass [Da] IQR Fragment Delta Mass [ppm] Mean Fragment Delta Mass [Da] Mean Fragment Delta Mass [ppm] Mean Absolute Fragment Delta Mass [Da] Mean Absolute Fragment Delta Mass [ppm] \par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Found 355049 PSMs\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Separate target and decoy search inputs detected, using target-decoy competition on Percolator scores.\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Train/test set contains 231834 positives and 123215 negatives, size ratio=1.88154 and pi0=1\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Selecting Cpos by cross-validation.\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Selecting Cneg by cross-validation.\par
+05/17/2021 04:46 PM\tab (3) Percolator:\tab Split 1:\tab Selected feature 3 as initial direction. Could separate 61661 training set positives with q<0.01 in that direction.\par
+05/17/2021 04:47 PM\tab (3) Percolator:\tab Split 2:\tab Selected feature 3 as initial direction. Could separate 61373 training set positives with q<0.01 in that direction.\par
+05/17/2021 04:47 PM\tab (3) Percolator:\tab Split 3:\tab Selected feature 3 as initial direction. Could separate 61438 training set positives with q<0.01 in that direction.\par
+05/17/2021 04:47 PM\tab (3) Percolator:\tab Found 92275 test set positives with q<0.01 in initial direction\par
+05/17/2021 04:47 PM\tab (3) Percolator:\tab Reading in data and feature calculation took 15.131 cpu seconds or 15 seconds wall clock time.\par
+05/17/2021 04:47 PM\tab (3) Percolator:\tab ---Training with Cpos selected by cross validation, Cneg selected by cross validation, initial_fdr=0.01, fdr=0.01\par
+05/17/2021 04:47 PM\tab (3) Percolator:\tab Iteration 1:\tab Estimated 103956 PSMs with q<0.01\par
+05/17/2021 04:47 PM\tab (3) Percolator:\tab Iteration 2:\tab Estimated 106550 PSMs with q<0.01\par
+05/17/2021 04:47 PM\tab (3) Percolator:\tab Iteration 3:\tab Estimated 107231 PSMs with q<0.01\par
+05/17/2021 04:47 PM\tab (3) Percolator:\tab Iteration 4:\tab Estimated 107519 PSMs with q<0.01\par
+05/17/2021 04:48 PM\tab (3) Percolator:\tab Iteration 5:\tab Estimated 107659 PSMs with q<0.01\par
+05/17/2021 04:48 PM\tab (3) Percolator:\tab Iteration 6:\tab Estimated 107714 PSMs with q<0.01\par
+05/17/2021 04:48 PM\tab (3) Percolator:\tab Iteration 7:\tab Estimated 107708 PSMs with q<0.01\par
+05/17/2021 04:48 PM\tab (3) Percolator:\tab Iteration 8:\tab Estimated 107709 PSMs with q<0.01\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Iteration 9:\tab Estimated 107704 PSMs with q<0.01\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Iteration 10:\tab Estimated 107693 PSMs with q<0.01\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Learned normalized SVM weights for the 3 cross-validation splits:\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  Split1\tab  Split2\tab  Split3\tab FeatureName\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.2962\tab -0.1907\tab -0.1397\tab XCorr\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.2060\tab  0.2388\tab  0.1878\tab Delta Cn From Second PSM\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  2.8309\tab  2.7487\tab  2.5569\tab Binomial Score\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.2828\tab  0.2966\tab  0.2841\tab Isolation Interference [%]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  1.0246\tab  0.9698\tab  0.9421\tab MH+ [Da]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.3070\tab  0.4832\tab  0.3696\tab Delta Mass [Da]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.2037\tab -0.4142\tab -0.2513\tab Delta Mass [ppm]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.7918\tab -0.9678\tab -0.8582\tab Absolute Delta Mass [Da]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.2974\tab -0.1985\tab -0.2046\tab Absolute Delta Mass [ppm]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.5400\tab -0.4852\tab -0.4768\tab Peptide Length\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.0000\tab  0.0000\tab  0.0000\tab Is z=1\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.0699\tab -0.0578\tab -0.0771\tab Is z=2\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.0697\tab  0.0600\tab  0.0826\tab Is z=3\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.0114\tab  0.0039\tab -0.0096\tab Is z=4\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.0472\tab -0.0269\tab -0.0246\tab Is z=5\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.0000\tab  0.0000\tab  0.0000\tab Is z>5\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -1.0204\tab -0.9549\tab -0.9594\tab # Missed Cleavages\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.2504\tab  0.2452\tab  0.2490\tab Log Peptides Matched\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.5566\tab -0.6011\tab -0.5512\tab Log Total Intensity\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.1985\tab  0.1504\tab  0.2132\tab Fraction Matched Intensity [%]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.4326\tab -0.4537\tab -0.3773\tab Fragment Coverage Series A, B, C [%]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.4468\tab  0.4030\tab  0.4848\tab Fragment Coverage Series X, Y, Z [%]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.1034\tab -0.0677\tab -0.1064\tab Log Matched Fragment Series Intensities A, B, C\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.1163\tab  0.1557\tab  0.1414\tab Log Matched Fragment Series Intensities X, Y, Z\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.1637\tab  0.1425\tab  0.1254\tab Longest Sequence Series A, B, C\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.0544\tab -0.0285\tab -0.0939\tab Longest Sequence Series X, Y, Z\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.0065\tab -0.0451\tab  0.0395\tab IQR Fragment Delta Mass [Da]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.4521\tab -0.3498\tab -0.4023\tab IQR Fragment Delta Mass [ppm]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.9164\tab -0.9585\tab -0.9447\tab Mean Fragment Delta Mass [Da]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab  0.4630\tab  0.6507\tab  0.5936\tab Mean Fragment Delta Mass [ppm]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.3102\tab -0.2593\tab -0.4374\tab Mean Absolute Fragment Delta Mass [Da]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -0.8676\tab -0.7576\tab -0.4590\tab Mean Absolute Fragment Delta Mass [ppm]\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab -2.4561\tab -2.3618\tab -2.2839\tab m0\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Found 107557 test set PSMs with q<0.01.\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Selected best-scoring PSM per scan+expMass (target-decoy competition): 174915 target PSMs and 65380 decoy PSMs.\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Tossing out "redundant" PSMs keeping only the best scoring PSM for each unique peptide.\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Calculating q values.\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Final list yields 17278 target peptides with q<0.01.\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Calculating posterior error probabilities (PEPs).\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab Processing took 160.3 cpu seconds or 160 seconds wall clock time.\par
+05/17/2021 04:49 PM\tab (3) Percolator:\tab PSMId\tab score\tab q-value\tab posterior_error_prob\tab peptide\tab proteinIds\par
+05/17/2021 04:50 PM\tab (3) Percolator:\tab 176672/65841 high confident target/decoy peptides were found for Sequest HT (2).\par
+05/17/2021 04:50 PM\tab (3) Percolator:\tab 0/0 medium confident target/decoy peptides were found for Sequest HT (2).\par
+05/17/2021 04:50 PM\tab (3) Percolator:\tab -- Total execution of Percolator (64Bit) for Sequest HT (2) took 10 min 10 s --\par
+05/17/2021 04:50 PM\tab (4) Spectrum Properties Filter:\tab -- Total execution of Spectrum Properties Filter (4) took 946.2 ms --\par
+05/17/2021 04:50 PM\tab (5) Sequest HT:\tab Storing spectra took 23.8 s.\par
+05/17/2021 04:50 PM\tab (5) Sequest HT:\tab There is already an adequate target FASTA index for uniprot-reviewed_yes+taxonomy_9606_07052020(606ded90-2df1-4ebd-bb65-8529a0975329).fasta.\par
+05/17/2021 04:50 PM\tab (5) Sequest HT:\tab Start Sequest HT target search for 288627 spectra (288627 precursors)...\par
+05/17/2021 04:50 PM\tab (5) Sequest HT:\tab Ise (2.0.0.24, x64) started at 5/17/2021 4:50:09 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 04:50 PM\tab (5) Sequest HT:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 04:50 PM\tab (5) Sequest HT:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 04:50 PM\tab (5) Sequest HT:\tab On-Disk search is performed\par
+05/17/2021 04:55 PM\tab (5) Sequest HT:\tab Average search time per spectrum was 1.0 ms.\par
+05/17/2021 04:55 PM\tab (5) Sequest HT:\tab Performing target search took 4 min 59 s.\par
+05/17/2021 09:12 PM\tab (5) Sequest HT:\tab Stored 321042 PSMs for 288627 spectra\par
+05/17/2021 09:12 PM\tab (5) Sequest HT:\tab Reading search results took 37.8 s.\par
+05/17/2021 09:12 PM\tab (5) Sequest HT:\tab Saving results took 4 h 17 min.\par
+05/17/2021 09:12 PM\tab (5) Sequest HT:\tab Saving proteins took 4.4 s.\par
+05/17/2021 09:12 PM\tab (5) Sequest HT:\tab Reading results took 4 h 17 min.\par
+05/17/2021 09:12 PM\tab (5) Sequest HT:\tab There is already an adequate decoy FASTA index for uniprot-reviewed_yes+taxonomy_9606_07052020(606ded90-2df1-4ebd-bb65-8529a0975329)_reversed.fasta.\par
+05/17/2021 09:12 PM\tab (5) Sequest HT:\tab Start Sequest HT decoy search for 288627 spectra (288627 precursors)...\par
+05/17/2021 09:13 PM\tab (5) Sequest HT:\tab Ise (2.0.0.24, x64) started at 5/17/2021 9:13:00 PM on DESKTOP-4AERTUL (x64) [2 CPUs] running Microsoft Windows NT 6.2.9200.0 (64bit) [.NET: 4.0.30319.42000]\par
+05/17/2021 09:13 PM\tab (5) Sequest HT:\tab Workload level: #parallel tasks: 2 \par
+05/17/2021 09:13 PM\tab (5) Sequest HT:\tab Workload level: #spectra loaded and processed at once: 2000\par
+05/17/2021 09:13 PM\tab (5) Sequest HT:\tab On-Disk search is performed\par
+05/17/2021 09:17 PM\tab (5) Sequest HT:\tab Average search time per spectrum was 1.0 ms.\par
+05/17/2021 09:17 PM\tab (5) Sequest HT:\tab Performing decoy search took 4 min 53 s.\par
+05/17/2021 09:19 PM\tab (5) Sequest HT:\tab Stored 691659 decoy PSMs for 288627 spectra\par
+05/17/2021 09:19 PM\tab (5) Sequest HT:\tab Reading search results took 37.9 s.\par
+05/17/2021 09:19 PM\tab (5) Sequest HT:\tab Saving results took 41.9 s.\par
+05/17/2021 09:19 PM\tab (5) Sequest HT:\tab Saving proteins took 4.5 s.\par
+05/17/2021 09:19 PM\tab (5) Sequest HT:\tab Reading results took 1 min 24 s.\par
+05/17/2021 09:19 PM\tab (5) Sequest HT:\tab Finalizing search results...\par
+05/17/2021 09:23 PM\tab (5) Sequest HT:\tab -- Total search time was 4 h 29 min --\par
+05/17/2021 09:23 PM\tab (6) INFERYS Rescoring:\tab Start rescoring for Sequest HT (5).\par
+05/17/2021 09:23 PM\tab (6) INFERYS Rescoring:\tab Start preparing input file for Sequest HT (5)...\par
+05/17/2021 09:23 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F1: Ex_Auto_J3_30umTB_02ngQC_60m_1.raw\par
+05/17/2021 09:23 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F1: Ex_Auto_J3_30umTB_02ngQC_60m_1.raw\par
+05/17/2021 09:23 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F2: Ex_Auto_J3_30umTB_02ngQC_60m_2.raw\par
+05/17/2021 09:24 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F2: Ex_Auto_J3_30umTB_02ngQC_60m_2.raw\par
+05/17/2021 09:24 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F3: Ex_Auto_J3_30umTB_2ngQC_60m_1.raw\par
+05/17/2021 09:24 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F3: Ex_Auto_J3_30umTB_2ngQC_60m_1.raw\par
+05/17/2021 09:25 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F4: Ex_Auto_J3_30umTB_2ngQC_60m_2.raw\par
+05/17/2021 09:25 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F4: Ex_Auto_J3_30umTB_2ngQC_60m_2.raw\par
+05/17/2021 09:25 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F5: Ex_Auto_K13_30umTA_02ngQC_60m_1.raw\par
+05/17/2021 09:25 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F5: Ex_Auto_K13_30umTA_02ngQC_60m_1.raw\par
+05/17/2021 09:26 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F6: Ex_Auto_K13_30umTA_02ngQC_60m_2.raw\par
+05/17/2021 09:26 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F6: Ex_Auto_K13_30umTA_02ngQC_60m_2.raw\par
+05/17/2021 09:26 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F7: Ex_Auto_K13_30umTA_2ngQC_60m_1.raw\par
+05/17/2021 09:26 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F7: Ex_Auto_K13_30umTA_2ngQC_60m_1.raw\par
+05/17/2021 09:27 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F8: Ex_Auto_K13_30umTA_2ngQC_60m_2.raw\par
+05/17/2021 09:27 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F8: Ex_Auto_K13_30umTA_2ngQC_60m_2.raw\par
+05/17/2021 09:27 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F9: Ex_Auto_W17_30umTA_02ngQC_60m_3.raw\par
+05/17/2021 09:27 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F9: Ex_Auto_W17_30umTA_02ngQC_60m_3.raw\par
+05/17/2021 09:28 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F10: Ex_Auto_W17_30umTA_02ngQC_60m_4.raw\par
+05/17/2021 09:28 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F10: Ex_Auto_W17_30umTA_02ngQC_60m_4.raw\par
+05/17/2021 09:28 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F11: Ex_Auto_W17_30umTB_2ngQC_60m_1.raw\par
+05/17/2021 09:28 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F11: Ex_Auto_W17_30umTB_2ngQC_60m_1.raw\par
+05/17/2021 09:29 PM\tab (6) INFERYS Rescoring:\tab Preparing identification input for F12: Ex_Auto_W17_30umTB_2ngQC_60m_2.raw\par
+05/17/2021 09:29 PM\tab (6) INFERYS Rescoring:\tab Preparing spectrum input for F12: Ex_Auto_W17_30umTB_2ngQC_60m_2.raw\par
+05/17/2021 09:29 PM\tab (6) INFERYS Rescoring:\tab Preparing input file for Sequest HT (5) took 6 min 27 s.\par
+05/17/2021 09:29 PM\tab (6) INFERYS Rescoring:\tab The input file contains 234022 target and 124175 decoy PSMs.\par
+05/17/2021 09:29 PM\tab (6) INFERYS Rescoring:\tab Start CE alignment...\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:05.370] [I] [License] found valid license\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:05.393] [I] [Build] 7b6dc72693cfa6e8d09682f73f5db62949d02fe4\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:05.397] [I] [Paths] Working dir: C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\INFERY(6)\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:05.397] [I] [Paths] Rawfile: C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\INFERY(6)\\Node5\\spectra.db\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:05.397] [I] [Paths] Sqlite: C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\INFERY(6)\\Node5\\peptides.db\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:05.397] [I] [Paths] out: C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\INFERY(6)\\Node5\\rescoring_config.toml\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:05.422] [I] [Config] ppm error:           20.0\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:05.422] [I] [Config] batch size:          10000\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:05.422] [I] [Config] sample size:         100\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:17.406] [I] [Info] Best spectral angle for rawfile 5: 0.866536\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:21.117] [I] [Info] Best spectral angle for rawfile 13: 0.85539\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:23.871] [I] [Info] Best spectral angle for rawfile 3: 0.856452\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:27.057] [I] [Info] Best spectral angle for rawfile 6: 0.862642\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:29.790] [I] [Info] Best spectral angle for rawfile 12: 0.866186\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:32.936] [I] [Info] Best spectral angle for rawfile 9: 0.866812\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:35.730] [I] [Info] Best spectral angle for rawfile 7: 0.859385\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:38.490] [I] [Info] Best spectral angle for rawfile 4: 0.853206\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:41.910] [I] [Info] Best spectral angle for rawfile 10: 0.863087\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:44.810] [I] [Info] Best spectral angle for rawfile 11: 0.866385\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:47.571] [I] [Info] Best spectral angle for rawfile 8: 0.872618\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:51.246] [I] [Info] Best spectral angle for rawfile 14: 0.859978\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:51.250] [I] [Info] Rescoring per raw-file needed: 3.66667 s\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab CE Alignment took 55.4 s.\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab Start calculating rescoring features...\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.307] [I] [License] found valid license\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Build] 7b6dc72693cfa6e8d09682f73f5db62949d02fe4\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Paths] Working dir: C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\INFERY(6)\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Paths] Rawfile: C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\INFERY(6)\\Node5\\spectra.db\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Paths] Sqlite: C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\INFERY(6)\\Node5\\peptides.db\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Paths] out: C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\INFERY(6)\\Node5\\input.tab\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 5: 33.8119\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 13: 33.3514\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 3: 33.5273\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 6: 34.5569\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 12: 33.8119\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 4: 34.5569\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 9: 34.2723\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 7: 34.0965\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 10: 34.2723\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 11: 34.0965\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 8: 34.0965\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] aligned CE for rawfile id 14: 34.2723\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] ppm error:                    20.0\par
+05/17/2021 09:30 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:30:52.333] [I] [Config] batch size:                   10000\par
+05/17/2021 09:37 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:37:13.336] [I] [Info] Rescoring 1 unique psm needed: 2.29647 ms\par
+05/17/2021 09:37 PM\tab (6) INFERYS Rescoring:\tab [2021-05-17 21:37:13.353] [I] [Info] Rescoring 1 psm needed: 1.0622 ms\par
+05/17/2021 09:37 PM\tab (6) INFERYS Rescoring:\tab Calculating features took 6 min 25 s.\par
+05/17/2021 09:37 PM\tab (6) INFERYS Rescoring:\tab Start persisting features...\par
+05/17/2021 09:38 PM\tab (6) INFERYS Rescoring:\tab Persisting features took 45.9 s.\par
+05/17/2021 09:38 PM\tab (6) INFERYS Rescoring:\tab -- Total execution of INFERYS Rescoring (6) took 14 min 34 s --\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Creating percolator input file with results from Sequest HT (5) took 17 h 33 min.\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab The input file contains 231834 PSMs, 123215 decoy PSMs and 81 features.\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Generated percolator input for concatenated mode\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Percolator version 3.05.0, Build Date May 18 2020 02:35:01\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Copyright (c) 2006-9 University of Washington. All rights reserved.\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Written by Lukas K\f1\u9500?\f0\'f1ll (lukall@u.washington.edu) in the\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Department of Genome Sciences at the University of Washington.\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Issued command:\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab C:\\Program Files\\Thermo\\Proteome Discoverer 2.5\\Tools\\Percolator\\win\\percolator.exe --num-threads 3 -s -X C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\Percol(3)\\output5.xml -N 0 -Z -Y C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\Percol(3)\\input5.tab\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Started Tue May 18 15:11:57 2021\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Hyperparameters: selectionFdr=0.01, Cpos=0, Cneg=0, maxNiter=10\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Reading tab-delimited input from datafile C:\\ProgramData\\Thermo\\Proteome Discoverer 2.5\\Scratch\\Job3\\Percol(3)\\input5.tab\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab Features:\par
+05/18/2021 03:11 PM\tab (3) Percolator:\tab XCorr absNotPredictedMeasured absNotPredictedMeasuredB absNotPredictedMeasuredY absNotPredictedNotMeasured absNotPredictedNotMeasuredB absNotPredictedNotMeasuredY absOnlyMeasured absOnlyMeasuredB absOnlyMeasuredY absOnlyPredicted absOnlyPredictedB absOnlyPredictedY absPredictedMeasured absPredictedMeasuredB absPredictedMeasuredY absPredictedNotMeasured absPredictedNotMeasuredB absPredictedNotMeasuredY relNotPredictedMeasured relNotPredictedMeasuredB relNotPredictedMeasuredY relNotPredictedNotMeasured relNotPredictedNotMeasuredB relNotPredictedNotMeasuredY relOnlyMeasured relOnlyMeasuredB relOnlyMeasuredY relOnlyPredicted relOnlyPredictedB relOnlyPredictedY relPredictedMeasured relPredictedMeasuredB relPredictedMeasuredY relPredictedNotMeasured relPredictedNotMeasuredB relPredictedNotMeasuredY relPrediction_absNotPredictedMeasured2absOnlyPredicted relPrediction_absNotPredictedMeasuredB2absOnlyPredictedB relPrediction_absNotPredictedMeasuredY2absOnlyPredictedY relPrediction_absNotPredictedNotMeasured2absOnlyPredicted relPrediction_absNotPredictedNotMeasuredB2absOnlyPredictedB relPrediction_absNotPredictedNotMeasuredY2absOnlyPredictedY relPrediction_absPredictedMeasured2absOnlyPredicted relPrediction_absPredictedMeasuredB2absOnlyPredictedB relPrediction_absPredictedMeasuredY2absOnlyPredictedY relPrediction_absPredictedNotMeasured2absOnlyPredicted relPrediction_absPredictedNotMeasuredB2absOnlyPredictedB relPrediction_absPredictedNotMeasuredY2absOnlyPredictedY sa Delta Cn From Second PSM Binomial Score Isolation Interference [%] MH+ [Da] Delta Mass [Da] Delta Mass [ppm] Absolute Delta Mass [Da] Absolute Delta Mass [ppm] Peptide Length Is z=1 Is z=2 Is z=3 Is z=4 Is z=5 Is z>5 # Missed Cleavages Log Peptides Matched Log Total Intensity Fraction Matched Intensity [%] Fragment Coverage Series A, B, C [%] Fragment Coverage Series X, Y, Z [%] Log Matched Fragment Series Intensities A, B, C Log Matched Fragment Series Intensities X, Y, Z Longest Sequence Series A, B, C Longest Sequence Series X, Y, Z IQR Fragment Delta Mass [Da] IQR Fragment Delta Mass [ppm] Mean Fragment Delta Mass [Da] Mean Fragment Delta Mass [ppm] Mean Absolute Fragment Delta Mass [Da] Mean Absolute Fragment Delta Mass [ppm] \par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Found 355049 PSMs\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Separate target and decoy search inputs detected, using target-decoy competition on Percolator scores.\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Train/test set contains 231834 positives and 123215 negatives, size ratio=1.88154 and pi0=1\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Selecting Cpos by cross-validation.\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Selecting Cneg by cross-validation.\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Split 1:\tab Selected feature 50 as initial direction. Could separate 62948 training set positives with q<0.01 in that direction.\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Split 2:\tab Selected feature 50 as initial direction. Could separate 62567 training set positives with q<0.01 in that direction.\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Split 3:\tab Selected feature 50 as initial direction. Could separate 62459 training set positives with q<0.01 in that direction.\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Found 93985 test set positives with q<0.01 in initial direction\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab Reading in data and feature calculation took 41.076 cpu seconds or 42 seconds wall clock time.\par
+05/18/2021 03:12 PM\tab (3) Percolator:\tab ---Training with Cpos selected by cross validation, Cneg selected by cross validation, initial_fdr=0.01, fdr=0.01\par
+05/18/2021 03:13 PM\tab (3) Percolator:\tab Iteration 1:\tab Estimated 108354 PSMs with q<0.01\par
+05/18/2021 03:14 PM\tab (3) Percolator:\tab Iteration 2:\tab Estimated 110359 PSMs with q<0.01\par
+05/18/2021 03:15 PM\tab (3) Percolator:\tab Iteration 3:\tab Estimated 110706 PSMs with q<0.01\par
+05/18/2021 03:17 PM\tab (3) Percolator:\tab Iteration 4:\tab Estimated 110820 PSMs with q<0.01\par
+05/18/2021 03:18 PM\tab (3) Percolator:\tab Iteration 5:\tab Estimated 110841 PSMs with q<0.01\par
+05/18/2021 03:19 PM\tab (3) Percolator:\tab Iteration 6:\tab Estimated 110843 PSMs with q<0.01\par
+05/18/2021 03:20 PM\tab (3) Percolator:\tab Iteration 7:\tab Estimated 110839 PSMs with q<0.01\par
+05/18/2021 03:22 PM\tab (3) Percolator:\tab Iteration 8:\tab Estimated 110841 PSMs with q<0.01\par
+05/18/2021 03:23 PM\tab (3) Percolator:\tab Iteration 9:\tab Estimated 110847 PSMs with q<0.01\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab Iteration 10:\tab Estimated 110853 PSMs with q<0.01\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab Learned normalized SVM weights for the 3 cross-validation splits:\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  Split1\tab  Split2\tab  Split3\tab FeatureName\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.7020\tab -0.6988\tab -0.7565\tab XCorr\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.3053\tab -0.2342\tab -0.2846\tab absNotPredictedMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.1775\tab -0.0823\tab -0.1681\tab absNotPredictedMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.3079\tab -0.2929\tab -0.2843\tab absNotPredictedMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.3106\tab -0.2885\tab -0.3817\tab absNotPredictedNotMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0610\tab -0.1794\tab -0.2961\tab absNotPredictedNotMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.7039\tab -0.3957\tab -0.4592\tab absNotPredictedNotMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0811\tab  0.1070\tab  0.0968\tab absOnlyMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0504\tab  0.0512\tab  0.0473\tab absOnlyMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0823\tab  0.1148\tab  0.1035\tab absOnlyMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.0933\tab -0.0192\tab -0.0728\tab absOnlyPredicted\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.1731\tab -0.1575\tab -0.2336\tab absOnlyPredictedB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0215\tab  0.1162\tab  0.1071\tab absOnlyPredictedY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1680\tab  0.1777\tab  0.1797\tab absPredictedMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1675\tab  0.1119\tab  0.1581\tab absPredictedMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1486\tab  0.1801\tab  0.1664\tab absPredictedMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.1828\tab -0.1324\tab -0.1748\tab absPredictedNotMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.2309\tab -0.1947\tab -0.2857\tab absPredictedNotMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.1016\tab -0.0533\tab -0.0494\tab absPredictedNotMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0759\tab  0.0009\tab  0.0443\tab relNotPredictedMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0222\tab -0.0659\tab  0.0506\tab relNotPredictedMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1008\tab  0.0772\tab  0.0158\tab relNotPredictedMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1280\tab  0.0500\tab -0.0288\tab relNotPredictedNotMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.0597\tab -0.0063\tab  0.2275\tab relNotPredictedNotMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.2505\tab  0.0817\tab -0.2709\tab relNotPredictedNotMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0431\tab  0.0208\tab  0.0117\tab relOnlyMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0107\tab  0.0077\tab  0.0659\tab relOnlyMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0460\tab  0.0227\tab -0.0118\tab relOnlyMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1424\tab  0.0037\tab -0.0144\tab relOnlyPredicted\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1596\tab  0.1539\tab  0.3705\tab relOnlyPredictedB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0488\tab -0.1430\tab -0.3777\tab relOnlyPredictedY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0253\tab  0.0223\tab  0.0008\tab relPredictedMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0004\tab  0.0540\tab  0.0491\tab relPredictedMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0291\tab  0.0087\tab -0.0156\tab relPredictedMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0795\tab -0.0133\tab -0.0112\tab relPredictedNotMeasured\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1535\tab  0.1253\tab  0.3333\tab relPredictedNotMeasuredB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0108\tab -0.1104\tab -0.2587\tab relPredictedNotMeasuredY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.4599\tab  0.4163\tab  0.4442\tab relPrediction_absNotPredictedMeasured2absOnlyPredicted\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0144\tab  0.0733\tab  0.0248\tab relPrediction_absNotPredictedMeasuredB2absOnlyPredictedB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.0022\tab  0.0377\tab -0.0321\tab relPrediction_absNotPredictedMeasuredY2absOnlyPredictedY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.7053\tab -0.6140\tab -0.5760\tab relPrediction_absNotPredictedNotMeasured2absOnlyPredicted\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0619\tab  0.0482\tab  0.0729\tab relPrediction_absNotPredictedNotMeasuredB2absOnlyPredictedB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.2161\tab  0.1153\tab  0.1325\tab relPrediction_absNotPredictedNotMeasuredY2absOnlyPredictedY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.7655\tab  0.8113\tab  0.7436\tab relPrediction_absPredictedMeasured2absOnlyPredicted\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.0904\tab -0.1658\tab -0.1171\tab relPrediction_absPredictedMeasuredB2absOnlyPredictedB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.1167\tab -0.2084\tab -0.1540\tab relPrediction_absPredictedMeasuredY2absOnlyPredictedY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.7655\tab -0.8113\tab -0.7436\tab relPrediction_absPredictedNotMeasured2absOnlyPredicted\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0865\tab  0.0877\tab  0.0731\tab relPrediction_absPredictedNotMeasuredB2absOnlyPredictedB\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1169\tab  0.2084\tab  0.1541\tab relPrediction_absPredictedNotMeasuredY2absOnlyPredictedY\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  1.3162\tab  1.3179\tab  1.3008\tab sa\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0742\tab  0.1093\tab  0.0880\tab Delta Cn From Second PSM\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  1.4568\tab  1.7001\tab  1.2790\tab Binomial Score\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1653\tab  0.1291\tab  0.1422\tab Isolation Interference [%]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.6967\tab  0.7849\tab  0.7412\tab MH+ [Da]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1332\tab  0.1682\tab  0.2691\tab Delta Mass [Da]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.0419\tab -0.0721\tab -0.1732\tab Delta Mass [ppm]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.4584\tab -0.3883\tab -0.5889\tab Absolute Delta Mass [Da]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.3591\tab -0.4945\tab -0.2339\tab Absolute Delta Mass [ppm]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.9552\tab  0.5557\tab  0.9370\tab Peptide Length\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0000\tab  0.0000\tab  0.0000\tab Is z=1\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.4075\tab -0.3371\tab -0.4241\tab Is z=2\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.3794\tab  0.3223\tab  0.4135\tab Is z=3\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1049\tab  0.0657\tab  0.0468\tab Is z=4\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1220\tab  0.0579\tab  0.0779\tab Is z=5\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0000\tab  0.0000\tab  0.0000\tab Is z>5\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.9391\tab -0.8788\tab -0.9176\tab # Missed Cleavages\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.2297\tab  0.2211\tab  0.1756\tab Log Peptides Matched\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.5942\tab -0.5677\tab -0.5561\tab Log Total Intensity\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.2554\tab -0.2270\tab -0.1883\tab Fraction Matched Intensity [%]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.4074\tab -0.4562\tab -0.4205\tab Fragment Coverage Series A, B, C [%]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.5512\tab -0.6579\tab -0.4403\tab Fragment Coverage Series X, Y, Z [%]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.0295\tab -0.0438\tab -0.0151\tab Log Matched Fragment Series Intensities A, B, C\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.1087\tab  0.0227\tab  0.0794\tab Log Matched Fragment Series Intensities X, Y, Z\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.0230\tab -0.0143\tab  0.0016\tab Longest Sequence Series A, B, C\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0258\tab -0.0056\tab -0.0773\tab Longest Sequence Series X, Y, Z\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.1939\tab -0.2391\tab -0.1843\tab IQR Fragment Delta Mass [Da]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.0547\tab  0.0968\tab  0.1079\tab IQR Fragment Delta Mass [ppm]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.4983\tab -0.4468\tab -0.3958\tab Mean Fragment Delta Mass [Da]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab  0.5533\tab  0.5113\tab  0.4658\tab Mean Fragment Delta Mass [ppm]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.0307\tab  0.0836\tab  0.0359\tab Mean Absolute Fragment Delta Mass [Da]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -0.1490\tab -0.2544\tab -0.3094\tab Mean Absolute Fragment Delta Mass [ppm]\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab -2.1576\tab -2.1175\tab -2.1379\tab m0\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab Found 110745 test set PSMs with q<0.01.\par
+05/18/2021 03:24 PM\tab (3) Percolator:\tab Selected best-scoring PSM per scan+expMass (target-decoy competition): 175026 target PSMs and 65269 decoy PSMs.\par
+05/18/2021 03:25 PM\tab (3) Percolator:\tab Tossing out "redundant" PSMs keeping only the best scoring PSM for each unique peptide.\par
+05/18/2021 03:25 PM\tab (3) Percolator:\tab Calculating q values.\par
+05/18/2021 03:25 PM\tab (3) Percolator:\tab Final list yields 17991 target peptides with q<0.01.\par
+05/18/2021 03:25 PM\tab (3) Percolator:\tab Calculating posterior error probabilities (PEPs).\par
+05/18/2021 03:25 PM\tab (3) Percolator:\tab PSMId\tab score\tab q-value\tab posterior_error_prob\tab peptide\tab proteinIds\par
+05/18/2021 03:25 PM\tab (3) Percolator:\tab Processing took 745.8 cpu seconds or 745 seconds wall clock time.\par
+05/18/2021 03:35 PM\tab (3) Percolator:\tab 176789/65737 high confident target/decoy peptides were found for Sequest HT (5).\par
+05/18/2021 03:35 PM\tab (3) Percolator:\tab 0/0 medium confident target/decoy peptides were found for Sequest HT (5).\par
+05/18/2021 03:35 PM\tab (3) Percolator:\tab -- Total execution of Percolator (64Bit) for Sequest HT (5) took 17 h 57 min --\par
+05/18/2021 03:35 PM\tab Job Execution:\tab Finished C:\\Users\\RTK\\Desktop\\Hannah\\benchmark_2ng_02ng\\Hannah_Daisha_Reanalysis_with_INFERYS_05172021.msf\par
+05/18/2021 03:35 PM\tab Job Execution:\tab ----- Total Job execution took: 25 h 13 min. ---\par
+================================================================================\par
+Processing Workflow A: Configuration\par
+================================================================================\par
+Result name: Hannah_Daisha_Reanalysis_with_INFERYS_05172021\par
+Result file: C:\\Users\\RTK\\Desktop\\Hannah\\benchmark_2ng_02ng\\Hannah_Daisha_Reanalysis_with_INFERYS_05172021.msf\par
+Description: Processing workflow for precursor-based quantification, using SequestHT with Multi Peptide Search and Percolator validation. Specify the FASTA database, labels used, and any additional modifications.\par
+Workflow based on template: PWF_QE_Precursor_Quan_and_LFQ_MPS_SequestHT_Percolator\par
+Creation date: 5/17/2021 2:22:15 PM\par
+Created with Discoverer version: 2.5.0.400\par
+\par
+\par
+------------------------------------------------------------------\par
+Configuration for: Spectrum Files RC\par
+------------------------------------------------------------------\par
+Search settings:\par
+- Ion Series settings (Hidden):\par
+\tab CID: by\par
+\tab HCD: by\par
+\tab ECD: cyz\par
+\tab ETD: cyz\par
+\tab EThcD: bcyz\par
+\tab UVPD: abxyz\par
+\par
+------------------------------------------------------------------\par
+Configuration for: Sequest HT\par
+------------------------------------------------------------------\par
+1. Workload Level:\par
+- Automatic:  True\par
+- Number of Spectra Processed At Once:  3000\par
+- Number of Parallel Tasks:  0\par
+\par
+2. XCorr Confidence Thresholds (low-resolution data):\par
+- z=1: High Confidence XCorr:  1.5\par
+- z=1: Medium Confidence XCorr:  0.7\par
+- z=2: High Confidence XCorr:  2\par
+- z=2: Medium Confidence XCorr:  0.9\par
+- z=3: High Confidence XCorr:  2.5\par
+- z=3: Medium Confidence XCorr:  1.2\par
+- z>=4: High Confidence XCorr:  3\par
+- z>=4: Medium Confidence XCorr:  1.5\par
+\par
+3. XCorr Confidence Thresholds (high-resolution data):\par
+- z=1: High Confidence XCorr:  1.2\par
+- z=1: Medium Confidence XCorr:  0.7\par
+- z=2: High Confidence XCorr:  1.9\par
+- z=2: Medium Confidence XCorr:  0.8\par
+- z=3: High Confidence XCorr:  2.3\par
+- z=3: Medium Confidence XCorr:  1\par
+- z>=4: High Confidence XCorr:  2.6\par
+- z>=4: Medium Confidence XCorr:  1.2\par
+\par
+\par
+}
+ 
