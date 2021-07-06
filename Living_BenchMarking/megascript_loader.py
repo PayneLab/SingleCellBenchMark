@@ -10,7 +10,7 @@ sys.path
 import data_loader as dl
 
 
-#This takes the 'before' data and filters it by dropping decoys and duplicates.
+#This takes the data and filters it by dropping decoys and duplicates.
 def filter_data(df, prob_column):
     # drop decoys
     df = df[df["decoy"] == False]
@@ -24,14 +24,12 @@ def filter_data(df, prob_column):
 def filter_input(input_files, probability):
     #code to parse their file into a trimmed and ready df
     formatted_files = {} 
+    
+    file_names = ["2ng_rep1", "2ng_rep2", "2ng_rep3", "2ng_rep4", "2ng_rep5", "2ng_rep6",
+             "0.2ng_rep1", "0.2ng_rep2", "0.2ng_rep3", "0.2ng_rep4", "0.2ng_rep5", "0.2ng_rep6"]
 
-    for file in input_files: 
-        #df = pd.read_csv(file)
-        df = pd.read_csv('2ng_rep1_new_features.csv') #delete
-
-        #These need to come out, for testing only with the data I have 
-        df['decoy'].replace('False', False, inplace = True) 
-        df['decoy'].replace('True', True, inplace = True) 
+    for file in file_names: 
+        df = pd.read_csv(input_files[file]) 
 
          # drop decoys
         df = df[df["decoy"] == False]
@@ -41,8 +39,7 @@ def filter_input(input_files, probability):
         df = df.drop_duplicates(subset=["scan"], keep="first")  # keep highest scoring
 
         #Filtering out just the columns that we want
-        #df = df.filter(['scan', 'peptide', probability])
-        df = df.filter(['scan', 'peptide', 'probability']) #delete
+        df = df.filter(['scan', 'peptide', probability])
 
         formatted_files[file] = df
     return formatted_files
@@ -125,10 +122,6 @@ def get_original_mq_data(file):
 # Reading in and formatting the data to be compared to the benchmarked data
 def get_input_data(file, probability):
     df = pd.read_csv(file)
-
-    # These need to come out, for testing only with the data I have
-    df['decoy'].replace('False', False, inplace=True)
-    df['decoy'].replace('True', True, inplace=True)
 
     df = filter_data(df, probability)
 
