@@ -2,7 +2,7 @@
 
 ## Introduction
 
-All data from the peptide identification tools are soted in the data folder, which are parsed and loaded into pandas dataframes by data_loader.py. To make figures 1 and 2 data is aggregated across all tools and stored in a table called megaScript. 
+All data from the peptide identification tools are sorted in the data folder, which are parsed and loaded into pandas dataframes by data_loader.py. To make Figures 1 and 2, data is aggregated across all tools and stored in a table called megaScript. 
 
 ## Running algorithms
 ### pepetide identifcation
