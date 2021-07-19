@@ -199,10 +199,14 @@ def clean_maxquant(file_name):
     # df = combined_df[combined_df["Raw file"]==file_path]
 
     #make a new col that includes modifide
-    df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1)
-    df["temp_peptide"] = df["temp_peptide"].str[1:-1]
+    #df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1) Delete
+    df = df.assign(temp_peptide = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1))
+    #df["temp_peptide"] = df["temp_peptide"].str[1:-1] delete
+    df = df.assign(temp_peptide=df["temp_peptide"].str[1:-1])
 
-    df['Reverse'] = df['Reverse'].astype(str)
+    #df['Reverse'] = df['Reverse'].astype(str) delete
+    df = df.assign(Reverse=df['Reverse'].astype(str))
+    
     df["decoy"] = df.apply(lambda row: make_decoy_col_maxquant(row), axis=1)
 
     df = df.rename({"Scan number": "scan", "temp_peptide": "peptide"}, axis=1)

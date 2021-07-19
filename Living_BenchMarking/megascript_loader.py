@@ -12,7 +12,7 @@ import data_loader as dl
 
 #This takes the data and filters it by dropping decoys and duplicates.
 def filter_data(df, prob_column):
-    # drop decoys
+    #drop decoys
     df = df[df["decoy"] == False]
     # sort by qvalue
     df = df.sort_values(prob_column)
@@ -29,9 +29,10 @@ def filter_input(input_files, probability):
              "0.2ng_rep1", "0.2ng_rep2", "0.2ng_rep3", "0.2ng_rep4", "0.2ng_rep5", "0.2ng_rep6"]
 
     for file in file_names: 
-        df = pd.read_csv(input_files[file]) 
+        df = pd.read_csv(input_files[file], low_memory=False) 
 
-         # drop decoys
+         # make sure decoy column is a boolean column and then drop decoys
+        df = df.assign(decoy=df['decoy'].astype(bool))
         df = df[df["decoy"] == False]
         # sort by qvalue
         df = df.sort_values(probability)
@@ -135,7 +136,7 @@ def get_input_data(file, probability):
 # read in the megaScript and reformat it
 def clean_meagScript(file):
     df = pd.read_csv(file, low_memory=False, header=[0, 1])
-    df.drop(columns={"Unnamed: 0_level_0"})
+    df = df.drop("Unnamed: 0_level_0", axis = 1, level = 0)
 
     return df
 
@@ -349,4 +350,4 @@ def make_megascript(input_files, tool_name):
         megaScript = megaScript.rename(columns={'InputData' : tool_name})
 
         # saving the megascript
-        megaScript.to_csv("benchmark_MegaScript_" + input_names[file] + ".csv")
+        megaScript.to_csv("benchmark_MegaScript_" + file + ".csv")
