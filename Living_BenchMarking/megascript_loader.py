@@ -31,8 +31,7 @@ def filter_input(input_files, probability):
     for file in file_names: 
         df = pd.read_csv(input_files[file], low_memory=False) 
 
-         # make sure decoy column is a boolean column and then drop decoys
-        df = df.assign(decoy=df['decoy'].astype(bool))
+        # make sure decoy column is a boolean column and then drop decoys
         df = df[df["decoy"] == False]
         # sort by qvalue
         df = df.sort_values(probability)
@@ -228,9 +227,9 @@ def make_2ng_graph(input_probability, tool_name, cutoff = 0.01):
 
     # Make the plot
     plt.bar(r1, msf_prob, width=barWidth, edgecolor='white', label='MsFragger Peptide Prophet Probability')
-    plt.bar(r2, MM_qval, width=barWidth, edgecolor='white', label='MetaMorpheus Q-Value')
-    plt.bar(r3, msg_qval, width=barWidth, edgecolor='white', label='MsgfPlus Q-Value')
-    plt.bar(r4, mq_PEP, width=barWidth, edgecolor='white', label='MaxQuant PEP')
+    plt.bar(r2, msg_qval, width=barWidth, edgecolor='white', label='MsgfPlus Q-Value')
+    plt.bar(r3, mq_PEP, width=barWidth, edgecolor='white', label='MaxQuant PEP')
+    plt.bar(r4, MM_qval, width=barWidth, edgecolor='white', label='MetaMorpheus Q-Value')
     plt.bar(r5, MM_PEP, width=barWidth, edgecolor='white', label='MetaMorpheus PEP')
     plt.bar(r6, input_prob, width=barWidth, edgecolor='white', label= tool_name + " " + input_probability)
 
@@ -243,7 +242,7 @@ def make_2ng_graph(input_probability, tool_name, cutoff = 0.01):
     # Create legend & Show graph
     plt.legend(loc="upper right", bbox_to_anchor=(1.73, 1))
     plt.show()
-    #plt.savefig('2ng_native_score.png')
+    plt.savefig('2ng_native_score.png')
 
 #Reading in the data and making the graph for the 0.2ng data at a certain cutoff
 def make_02ng_graph(input_probability, tool_name, cutoff = 0.01):
@@ -278,9 +277,9 @@ def make_02ng_graph(input_probability, tool_name, cutoff = 0.01):
 
     # Make the plot
     plt.bar(r1, msf_prob, width=barWidth, edgecolor='white', label='MsFragger Peptide Prophet Probability')
-    plt.bar(r2, MM_qval, width=barWidth, edgecolor='white', label='MetaMorpheus Q-Value')
-    plt.bar(r3, msg_qval, width=barWidth, edgecolor='white', label='MsgfPlus Q-Value')
-    plt.bar(r4, mq_PEP, width=barWidth, edgecolor='white', label='MaxQuant PEP')
+    plt.bar(r2, msg_qval, width=barWidth, edgecolor='white', label='MsgfPlus Q-Value')
+    plt.bar(r3, mq_PEP, width=barWidth, edgecolor='white', label='MaxQuant PEP')
+    plt.bar(r4, MM_qval, width=barWidth, edgecolor='white', label='MetaMorpheus Q-Value')
     plt.bar(r5, MM_PEP, width=barWidth, edgecolor='white', label='MetaMorpheus PEP')
     plt.bar(r6, input_prob, width=barWidth, edgecolor='white', label= tool_name + " " + input_probability)
 
@@ -293,7 +292,7 @@ def make_02ng_graph(input_probability, tool_name, cutoff = 0.01):
     # Create legend & Show graph
     plt.legend(loc="upper right", bbox_to_anchor=(1.73, 1))
     plt.show()
-    #plt.savefig('0.2ng_native_score.png')
+    plt.savefig('0.2ng_native_score.png')
 
 
 #names of all the files we are going to read in to upload our data

@@ -51,6 +51,7 @@ def format_carbamidomethyl(row, column, to_replace):
             new_pep = peptide
     return new_pep
 
+
 #load data
 def clean_msgfplus(file_name):
     msgfplus_files = {}
@@ -83,8 +84,8 @@ def clean_msgfplus(file_name):
 
     df = df.rename({'ScanNum': 'scan', 'new_pep': 'peptide'}, axis=1)
 
-
     return df
+
 
 def clean_msfragger(file_name):
     #it came as a combined file, so we need to parse out individual mm_files
@@ -122,9 +123,9 @@ def clean_msfragger(file_name):
     df = df.rename({"temp2":"peptide", "Spectrum":"scan"}, axis=1)
 
     df["decoy"] = df.apply(lambda row: make_decoy_col_msfragger(row), axis=1)
-    # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
+
 
 def clean_metamorph(file_name):
     mm_files = {}
@@ -159,9 +160,8 @@ def clean_metamorph(file_name):
     #uniform naming
     data_new = data.rename({"Decoy": "decoy", "Scan Number": "scan", "temp2": "peptide"}, axis=1)
 
-    # data_new = data_new.filter((['decoy', 'scan', 'peptide','probability' ]))
-
     return data_new
+
 
 def clean_maxquant(file_name):
     path_to_data_loader = os.path.abspath(os.path.dirname(__file__)) # This gets the absolute path to the location of the data_loader.py file
@@ -195,56 +195,18 @@ def clean_maxquant(file_name):
         file_path = maxq_files.get(file_name)
         df = combined_df_2ng[combined_df_2ng["Raw file"]==file_path]
 
-    # file_path = maxq_files.get(file_name)
-    # df = combined_df[combined_df["Raw file"]==file_path]
-
-    #make a new col that includes modifide
-    #df['temp_peptide'] = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1) Delete
     df = df.assign(temp_peptide = df.apply(lambda row: format_oxidation(row, "Modified sequence", "(Oxidation (M))"), axis=1))
-    #df["temp_peptide"] = df["temp_peptide"].str[1:-1] delete
+   
     df = df.assign(temp_peptide=df["temp_peptide"].str[1:-1])
 
-    #df['Reverse'] = df['Reverse'].astype(str) delete
     df = df.assign(Reverse=df['Reverse'].astype(str))
     
     df["decoy"] = df.apply(lambda row: make_decoy_col_maxquant(row), axis=1)
 
     df = df.rename({"Scan number": "scan", "temp_peptide": "peptide"}, axis=1)
-    # else:
-    #     df = df.rename({"Scan number": "scan", "temp_peptide": "peptide", 'Score':'probability'}, axis=1)
-
-    # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
 
     return df
 
-
-
-def clean_spectromine(file_name):
-        combined_df = pd.read_csv("data/spectromine/20210129_140856_SingleCell_PSM Report_20210201_171706.csv.gz")
-
-        #we're going to have to spearate out the files based on file name.
-        spectro_files = {}
-        spectro_files["singleCell_1"] = "RC1051_DDA_SingleCell_HeLa_1-1-2021_Rep1.raw"
-        spectro_files["singleCell_2"] = "RC1051_DDA_SingleCell_HeLa_1-1-2021_Rep2.raw"
-        spectro_files["singleCell_3"] = "RC1051_DDA_SingleCell_HeLa_1-1-2021_Rep3.raw"
-        spectro_files["singleCell_4"] = "RC1051_DDA_SingleCell_HeLa_1-14-2021_Rep1.raw"
-        spectro_files["50ng_1"] = "RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep1.raw"
-        spectro_files["50ng_2"] = "RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep2.raw"
-        spectro_files["50ng_3"] = "RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep3.raw"
-        spectro_files["50ng_4"] = "RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep4.raw"
-        spectro_files["50ng_5"] = "RC1051_Library_DDA_QC_HeLa_50ng_12-28-2020_Rep5.raw"
-
-        spectro_files["2ng"] = "Ex_Auto_DrM3_30umT4_2ngQC_60m_half.raw"
-        spectro_files[".2ng"] = "Ex_Auto_DrM3_30umT4_02ngQC_60m_half.raw"
-
-        #then use the file name to select
-        file_path = spectro_files.get(file_name)
-        df = combined_df[combined_df["R.FileName"]==file_path]
-
-        df = df.rename({"PEP.IsDecoy": "decoy", "PSM.MS2ScanNumber": "scan", "PEP.StrippedSequence": "peptide", "PEP.QValue": "PEP_QValue"}, axis=1)
-        # df = df.filter(['decoy', 'scan', 'peptide', 'probability'])
-
-        return df
 
 def get_pin_file(file_name):
     mm_pin_files = {}
@@ -306,6 +268,5 @@ def clean_proteome_discover(file_name):
     else:
         file_path = pd_files.get(file_name)
         df = combined_df_2ng[combined_df_2ng["Spectrum File"]==file_path]
-
 
     return df
