@@ -242,7 +242,7 @@ def make_2ng_graph(input_probability, tool_name, cutoff = 0.01):
     # Create legend & Show graph
     plt.legend(loc="upper right", bbox_to_anchor=(1.73, 1))
     plt.show()
-    plt.savefig('2ng_native_score.png')
+    plt.savefig('2ng_benchmark_graph.png')
 
 #Reading in the data and making the graph for the 0.2ng data at a certain cutoff
 def make_02ng_graph(input_probability, tool_name, cutoff = 0.01):
@@ -292,7 +292,7 @@ def make_02ng_graph(input_probability, tool_name, cutoff = 0.01):
     # Create legend & Show graph
     plt.legend(loc="upper right", bbox_to_anchor=(1.73, 1))
     plt.show()
-    plt.savefig('0.2ng_native_score.png')
+    plt.savefig('0.2ng_benchmark_graph.png')
 
 
 #names of all the files we are going to read in to upload our data
